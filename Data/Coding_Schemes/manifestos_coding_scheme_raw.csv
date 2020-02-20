@@ -1,0 +1,98 @@
+﻿Code,Description,Type,Parent
+000,General,Domain,
+100,External Relations,Domain,
+101,Foreign Special Relationships: Positive,Major,100
+102,Foreign Special Relationships: Negative,Major,100
+103,Anti-Imperialism,Major,100
+103.1,State Centered Anti-Imperialism,Minor,103
+103.2,Foreign Financial Influence,Minor,103
+104,Military: Positive,Major,100
+105,Military: Negative,Major,100
+106,Peace,Major,100
+107,Internationalism: Positive,Major,100
+108,European Community or Latin America Integration: Positive,Major,100
+109,Internationalism: Negative,Major,100
+110,European Community or Latin America Integration: Negative,Major,100
+200,Freedom and Democracy,Domain,
+201,Freedom and Human Rights,Major,200
+201.1,Freedom,Minor,201
+201.2,Human Rights,Minor,201
+202,Democracy,Major,200
+202.1,Democracy General: Positive,Minor,202
+202.2,Democracy General: Negative,Minor,202
+202.3,Representative Democracy: Positive,Minor,202
+202.4,Representative Democracy: Negative,Minor,202
+203,Constitutionalism: Positive,Major,200
+204,Constitutionalism: Negative,Major,200
+300,Political System,Domain,
+301,Decentralisation: Positive,Major,300
+302,Centralisation: Positive,Major,300
+303,Governmental and Administrative Efficiency,Major,300
+304,Political Corruption,Major,300
+305,Political Authority,Major,300
+305.1,Political Authority: Party Competence,Minor,305
+305.2,Political Authority: Personal Competence,Minor,305
+305.3,Political Authority: Strong government,Minor,305
+305.4,Pre-Democratic Elites: Positive,Minor,305
+305.5,Pre-Democratic Elites: Negative,Minor,305
+305.6,Rehabilitation and Compensation,Minor,305
+400,Economy,Domain,
+401,Free Market Economy,Major,400
+402,Incentives: Positive,Major,400
+403,Market Regulation,Major,400
+404,Economic Planning,Major,400
+405,Corporatism/Mixed Economy,Major,400
+406,Protectionism: Positive,Major,400
+407,Protectionism: Negative,Major,400
+408,Economic Goals,Major,400
+409,Keynesian Demand Management,Major,400
+410,Economic Growth: Positive,Major,400
+411,Technology and Infrastructure: Positive,Major,400
+412,Controlled Economy,Major,400
+413,Nationalisation,Major,400
+414,Economic Orthodoxy,Major,400
+415,Marxist Analysis: Positive,Major,400
+416,Anti-Growth Economy and Sustainability,Major,400
+416.1,Anti-Growth Economy: Positive,Minor,416
+416.2,Sustainability: Positive,Minor,416
+500,Welfare and Quality of Life,Domain,
+501,Environmental Protection,Major,500
+502,Culture: Positive,Major,500
+503,Equality: Positive,Major,500
+504,Welfare State Expansion,Major,500
+505,Welfare State Limitation,Major,500
+506,Education Expansion,Major,500
+507,Education Limitation,Major,500
+600,Fabric of Society,Domain,
+601,National Way of Life: Positive,Major,600
+601.1,National Way of Life Positive: General,Minor,601
+601.2,Immigration: Negative,Minor,601
+602,National Way of Life: Negative,Major,600
+602.1,National Way of Life Negative: General,Minor,602
+602.2,Immigration: Positive,Minor,602
+603,Traditional Morality: Positive,Major,600
+604,Traditional Morality: Negative,Major,600
+605,Law and Order,Major,600
+605.1,Law and Order General: Positive,Minor,605
+605.2,Law and Order General: Negative,Minor,605
+606,Civic Mindeness: Positive,Major,600
+606.1,Civic Mindeness: General,Minor,606
+606.2,Bottom-Up Activism,Minor,606
+607,Multiculturalism: Positive,Major,600
+607.1,Multiculturalism Positive: General,Minor,607
+607.2,Immigrant Integration: Diversity,Minor,607
+607.3,Indigenous Rights: Positive,Minor,607
+608,Multiculturalism: Negative,Major,600
+608.1,Multiculturalism Negative: General,Minor,608
+608.2,Immigrant Integration: Assimilation,Minor,608
+608.3,Indigenous Rights: Negative,Minor,608
+700,Social Groups,Domain,
+701,Labour Groups: Positive,Major,700
+702,Labour Groups: Negative,Major,700
+703,Agriculture and Farmers,Major,700
+703.1,Agriculture and Farmers: Positive,Minor,703
+703.2,Agriculture and Farmers: Negative,Minor,703
+704,Middle Class and Professional Groups,Major,700
+705,Underpriviledged Minority Groups,Major,700
+706,Non-Economic Demographic Groups,Major,700
+H,Header,Domain,

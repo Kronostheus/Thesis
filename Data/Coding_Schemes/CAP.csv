@@ -1,0 +1,214 @@
+Major Topic,Minor Topic,Code,Description
+Macroeconomics,General,100,Includes issues related to general domestic macroeconomic policy.
+Macroeconomics,Interest Rates,101,"Includes issues related to inflation, cost of living, prices, and interest rates"
+Macroeconomics,Unemployment Rate,103,"Includes issues related to the unemployment rate, impact of unemployment"
+Macroeconomics,Monetary Policy,104,"Includes issues related to the monetary policy, central bank, and the treasury"
+Macroeconomics,National Budget,105,"Issues related to public debt, budgeting, and efforts to reduce deficits"
+Macroeconomics,Tax Code,107,"Includes issues related to tax policy, the impact of taxes, and tax enforcement"
+Macroeconomics,Industrial Policy,108,"Includes issues related to manufacturing policy, industrial revitalization and growth"
+Macroeconomics,Price Control,110,"Includes issues related to wage or price control, emergency price controls"
+Macroeconomics,Other,199,Includes issues related to other macroeconomics subtopics
+Civil Rights,General,200,Includes issues related generally to civil rights and minority rights
+Civil Rights,Minority Discrimination,201,"Includes issues related to minority, ethnic, and racial group discrimination"
+Civil Rights,Gender Discrimination,202,"Includes issues related to sex, gender, and sexual orientation discrimination"
+Civil Rights,Age Discrimination,204,"Includes issues related to age discrimination, including mandatory retirement age policies"
+Civil Rights,Handicap Discrimination,205,Includes issues related to handcap and disease discrimination
+Civil Rights,Voting Rights,206,"Includes issues related to voting rights, expanding or contracting the franchise, participation and related issues"
+Civil Rights,Freedom of Speech,207,"Issues related to freedom of speech, religious freedoms, and other types of freedom of expression"
+Civil Rights,Right to Privacy,208,"Includes issues related to privacy rights, including privacy of records, access to government information, and abortion rights"
+Civil Rights,Anti-Government,209,"Includes issues related to anti-government activity groups, such as the communist party and local insurgency groups"
+Civil Rights,Other,299,Includes issues related to other civil rights subtopics
+Health,General,300,"Includes issues related generally to health care, including appropriations for general health care government agencies"
+Health,Health Care Reform,301,"Includes issues related to broad, comprehensive changes in the health care system"
+Health,Insurance,302,"Includes issues related to health insurance reform, regulation, availability, and cost"
+Health,Drug Industry,321,"Includes issues related to the regulation and promotion of pharaceuticals, medical devices, and clinical labs"
+Health,Medical Facilities,322,"Issues related to facilities construction, regulaton and payments, including waitlists and ambulance services"
+Health,Insurance Providers,323,"Includes issues related to provider and insurer payments and regulation, including other types of benefits or multple benefits"
+Health,Medical Liability,324,"Includes issues related to medical liability, malpractice issues, medical fraud and abuse, and unfair practices"
+Health,Manpower,325,"Issues related to the supply and quantity of labor in the health care industry, training and licensing"
+Health,Disease Prevention,331,"Issues related to disease prevention, treatment, and health promotion, including specific diseases not covered in other subtopics"
+Health,Infants and Children,332,"Includes issues related to infants and children, including coverage and quality of care, health promotion, and school health programs"
+Health,Mental,333,Includes issues related to mental health care and mental health disease
+Health,Long-term Care,334,"Includes issues related to long term care, home health care, the terminally ill, and rehabilitation services"
+Health,Drug Coverage and Cost,335,"Includes issues related to prescription drug coverage, programs to pay for prescription drugs, and policy to reduce the cost of prescription drugs"
+Health,Tobacco Abuse,341,"Includes issues related to tobacco abuse, treatment, education, and health effects"
+Health,Drug and Alcohol Abuse,342,"Includes issues related to alcohol and illegal drug abuse, treatment, education, and health effects"
+Health,Research and Development,398,Includes issues related to health care research and development
+Health,Other,399,Includes issues related to other health care topics
+Agriculture,General,400,"Includes issues related to general agriculture policy, including appropriations for general agriculture government agencies"
+Agriculture,Trade,401,Includes issues related to  the regulation and impact of agricultural foreign trade
+Agriculture,Subsidies to Farmers,402,"Includes issues related to government subsidies to farmers and ranchers, including agricultural disaster insurance"
+Agriculture,Food Inspection and Safety,403,"Includes issues related to food inspection and safety, including seafood, and labeling requirements"
+Agriculture,Marketing and Promotion,404,Includes issues related to efforts to provide information on agricultural products to consumers and the regulation of agricultural marketing
+Agriculture,Animal and Crop Disease,405,"Includes issues related to animal and crop disease, pest control and pesticide regulation, and welfare for domesticated animals"
+Agriculture,Fisheries and Fishing,408,"Includes issues related to fishing, commercial fishery regulation and conservation"
+Agriculture,Research and Development,498,Includes issues related to agricultural research and development
+Agriculture,Other,499,Includes issues related to other agricultural subtopics
+Labor,General,500,"Includes issues generally related to labor, employment, and pensions, including appropriations for government agencies regulating labor policy"
+Labor,Worker Safety,501,Includes issues related to worker safety and protection and compensation for work-related injury and disease
+Labor,Employment Training,502,"Includes issues related to job training for adult workers, workforce development, and efforts to retrain displaced workers"
+Labor,Employee Benefits,503,"Includes issues related to all employee benefits, pensions, and retirement accounts, including government-provided unemployment insurance"
+Labor,Labor Unions,504,"Includes issues related to labor unions, collective bargaining, and employer-employee relations"
+Labor,Fair Labor Standards,505,"Includes issues related to fair labor standards such as the minimum wage and overtime compensation, and labor law"
+Labor,Youth Employment,506,"Includes issues related to youth employment, child labor and job training for youths"
+Labor,Migrant and Seasonal,529,"Includes issues related to migrant, guest and seasonal workers"
+Labor,Other,599,Issues related to other labor policy
+Education,General,600,"Includes issues related to general education policy, including appropriations for government agencies regulating education policy"
+Education,Higher,601,"Includes issues related to higher education, student loans and education finance, and the regulation of colleges and universities"
+Education,Elementary and Secondary,602,"Includes issues related to elementary and primary schools, school reform, safety in schools, and efforts to generally improve educational standards and outcomes"
+Education,Underprivileged,603,"Includes issues related to education of underprivileged students, including adult literacy programs, bilingual education needs, and rural education initiatives"
+Education,Vocational,604,Includes issues related to vocational education for children and adults and their impact
+Education,Special,606,Includes issues related to special education and education for the physically or mentally handicapped
+Education,Excellence,607,"Includes issues related to education excellence, including efforts to increase the quality of specific areas, such as math, science or foreign language skills"
+Education,Research and Development,698,Includes issues related to research and development in education
+Education,Other,699,Includes issues related to other subtopics in education policy
+Environment,General,700,"Includes issues related to general environmental policy, including appropriations for government agencies regulating environmental policy"
+Environment,Drinking Water,701,"Includes issues related to domestic drinking water safety, supply, polution, fluridation, and conservation"
+Environment,Waste Disposal,703,"Includes issues related to the disposal and treatment of wastewater, solid waste and runoff."
+Environment,Hazardous Waste,704,"Includes issues related to hazardous waste and toxic chemical regulation, treatment, and disposal"
+Environment,Air Pollution,705,"Includes issues related to air pollution, climate change, and noise pollution"
+Environment,Recycling,707,"Includes issues related to recycling, reuse, and resource conservation"
+Environment,Indoor Hazards,708,"Includes issues related to indoor environmental hazards, indoor air contamination (including on airlines), and indoor hazardous substances such as asbestos"
+Environment,Species and Forest,709,"Includes issues related to species and forest protection, endangered species, control of the domestic illicit trade in wildlife products, and regulation of labratory or performance animals"
+Environment,Conservation,711,Includes issues related to land and water conservation
+Environment,Research and Development,798,"Includes issues related to research and development in environmental technology, not including alternative energy"
+Environment,Other,799,Includes issues related to other environmental subtopics
+Energy,General,800,"Includes issues generally related to energy policy, including appropriations for government agencies regulating energy policy"
+Energy,Nuclear,801,"Includes issues related to nuclear energy, safety and security, and disposal of nuclear waste"
+Energy,Electricity,802,"Includes issues related to to general electricity, hydropower, and regulation of electrical utilities"
+Energy,Natural Gas and Oil,803,"Includes issues related to natural gas and oil, drilling, oil spills and flaring, oil and gas prices, shortages and gasoline regulation"
+Energy,Coal,805,"Includes issues related to coal production, use, trade, and regulation, including coal gasification and clean coal technologies"
+Energy,Alternative and Renewable,806,"Includes issues related to alternative and renewable energy, biofuels, hydrogen and geothermal power"
+Energy,Conservation,807,"Includes issues related to energy conservation and energy efficiency, including vehicles, homes, commerical use and government"
+Energy,Research and Development,898,Includes issues related to energy research and development
+Energy,Other,899,Includes issues related to other energy subtopics
+Immigration,Immigration,900,"Includes issues related to immigration, refugees, and citizenship"
+Transportation,General,1000,"Includes issues related generally to transportation, including appropriations for government agencies regulating transportation policy"
+Transportation,Mass,1001,"Includes issues related to mass transportation construction, regulation, safety, and availability"
+Transportation,Highways,1002,"Includes issues related to public highway construction, maintenance, and safety"
+Transportation,Air Travel,1003,"Includes issues related to air travel, regulation and safety of aviation, airports, air traffic control, pilot training, and aviation technology"
+Transportation,Railroad Travel,1005,"Includes issues related to railroads, rail travel, rail freight, and the development and deployment of new rail technologies"
+Transportation,Maritime,1007,"Includes issues related to maritime transportation, including martime freight and shipping, safety and security, and inland waterways and channels"
+Transportation,Infrastructure,1010,"Includes issues related to infrastructure and public works, including employment intiatives"
+Transportation,Research and Development,1098,Includes issues related to transportation research and development
+Transportation,Other,1099,Includes issues related to other transportation subtopics
+Law and Crime,General,1200,"Includes issues related to general law, crime, and family issues"
+Law and Crime,Agencies,1201,"Includes issues related to all law enforcement agencies, including border, customs, and other specialized enforcement agencies and their appropriations"
+Law and Crime,White Collar Crime,1202,"Includes issues related to white collar crime, organized crime, counterfeitting and fraud, cyber-crime, and money laundering"
+Law and Crime,Illegal Drugs,1203,"Issues related to illegal drug crime and enforcement, criminal penalties for drug crimes, including international efforts to combat drug trafficking"
+Law and Crime,Court Administration,1204,"Includes issues related to court administration, judiciary appropriations, guidelines for bail, pre-release, fines and legal representation"
+Law and Crime,Prisons,1205,"Includes issues related to prisons and jails, parole systems, and appropriations"
+Law and Crime,Juvenile Crime,1206,"Includes issues related to juvenile crime and justice, juvenile prisons and jails, and efforts to reduce juvenile crime and recidivism"
+Law and Crime,Child Abuse,1207,"Includes issues related to child abuse, child pornography, sexual exploitation of children and parental kidnapping"
+Law and Crime,Family Issues,1208,"Includes issues related to family issues, domestic violence, child welfare, family law"
+Law and Crime,Criminal and Civil Code,1210,"Includes issues related to domestic criminal and civil codes, including crimes not mentioned in other subtopics"
+Law and Crime,Crime Control,1211,"Includes issues related to the control, prevention, and impact of crime"
+Law and Crime,Police,1227,"Includes issues related to Police and other general domestic security responses to terrorism, such as special police"
+Law and Crime,Other,1299,"Includes issues related to other law, crime, and family subtopics"
+Social Welfare,General,1300,Includes issues generally related to social welfare policy
+Social Welfare,Low-Income Assistance,1302,"Includes issues related to poverty assitance for low-income families, including food assitance programs, programs to assess or alleviate welfare dependency and tax credits directed at low income families"
+Social Welfare,Elderly Assistance,1303,"Includes issues related to elderly issues and elderly assitance, including government pensions"
+Social Welfare,Disabled Assistance,1304,Includes issues related to aid for people with physical or mental disabilities
+Social Welfare,Volunteer Associations,1305,"Includes issues related to domestic volunteer associations, charities, and youth organizations"
+Social Welfare,Child Care,1308,Includes issues related to parental leave and child care
+Social Welfare,Other,1399,Includes issues related to other social welfare policy subtopics
+Housing,General,1400,Includes issues related generally to housing and urban affairs
+Housing,Community Development,1401,"Includes issues related to housing and community development, neighborhood development, and national housing policy"
+Housing,Urban Development,1403,Includes issues related to urban development and general urban issues
+Housing,Rural Housing,1404,Includes issues related to rural housing
+Housing,Rural Development,1405,Includes issues related to non-housing rural economic development
+Housing,Low-Income Assistance,1406,"Includes issues related to housing for low-income individuals and families, including public housing projects and housing affordability programs"
+Housing,Veterans,1407,"Includes issues related to housing for military veterans and their families, including subsidies for veterans"
+Housing,Elderly,1408,"Includes issues related to housing for the elderly, including housing facilities for the handicapped elderly"
+Housing,Homeless,1409,Includes issues related to housing for the homeless and efforts to reduce homelessness
+Housing,Research and Development,1498,Includes issues related to housing and community development research and development
+Housing,Other,1499,Other issues related to housing and community development
+Domestic Commerce,General,1500,"Includes issues generally related to domestic commerce, including approprations for government agencies regulating domstic commerce"
+Domestic Commerce,Banking,1501,Includes issues related to the regulation of national banking systems and other non-bank financial institutions
+Domestic Commerce,Securities and Commodities,1502,"Includes issues related to the regulation and facilitation of securities and commodities trading, regulation of investments and related industries, and exchanges"
+Domestic Commerce,Consumer Finance,1504,"Includes issues related to consumer finance, mortages, credit cards, access to credit records, and consumer credit fraud"
+Domestic Commerce,Insurance Regulation,1505,"Includes issues related to insurance regulation, fraud and abuse in the insurance industry, the financial health of the insurance industry, and insurance availability and cost"
+Domestic Commerce,Bankruptcy,1507,"Includes issues related to personal, commercial, and municipal bankruptcies"
+Domestic Commerce,Corporate Management,1520,"Includes issues related to corporate mergers, antitrust regulation, corporate accounting and governance, and corporate  management"
+Domestic Commerce,Small Businesses,1521,"Includes issues related to small businesses, including programs to promote and subsidize small businesses"
+Domestic Commerce,Copyrights and Patents,1522,"Includes issues related to copyrights and patents, patent reform, and intellectual property"
+Domestic Commerce,Disaster Relief,1523,"Includes issues related to domestic natual disaster relief, disaster or flood insurance, and natural disaster preparedness"
+Domestic Commerce,TourismDecription,1524,"Issues related to tourism regulation, promotion, and impact"
+Domestic Commerce,Consumer Safety,1525,Includes issues related to consumer fraud and safety in domestic commerce
+Domestic Commerce,Sports Regulation,1526,"Includes issues related to the regulation and promotion of sports, gambling, and personal fitness"
+Domestic Commerce,Research and Development,1598,Includes issues related to domestic commerce research and development
+Domestic Commerce,Other,1599,Includes issues related to other domestic commerce policy subtopics
+Defense,General,1600,"Includes issues related generally to defense policy, and appropriations for agencies that oversee general defense policy"
+Defense,Alliances,1602,"Includes issues related to defense alliance and agreement, security assistance, and UN peacekeeping activities"
+Defense,Intelligence,1603,"Includes issues related to military intelligence, espionage, and covert operations"
+Defense,Readiness,1604,"Includes issues related to military readiness, coordination of armed services air support and sealift capabilities, and national stockpiles of strategic materials."
+Defense,Nuclear Arms,1605,"Includes issues related to nuclear weapons, nuclear proliferation, moderization of nuclear equipment"
+Defense,Military Aid,1606,Includes issues related to military aid to other countries and the control of arms sales to other countries
+Defense,Personnel Issues,1608,"Includes issues related to military manpower, military personel and their defendents, military courts, and general veterans issues"
+Defense,Procurement,1610,"Includes issues related to military procurement, conversion of old equipment, and weapons systems evaluation"
+Defense,Installations and Land,1611,"Includes issues related to military installations, construction, and land transfers"
+Defense,Reserve Forces,1612,Reserve ForcesDescription; Issues related to military reserves and reserve affairs
+Defense,Hazardous Waste,1614,Includes issues related to military nuclear and hazardous waste disposal and military environmental compliance
+Defense,Civil,1615,"Includes issues related to domestic civil defense, national security responses to terrorism, and other issues related to homeland security"
+Defense,Civilian Personnel,1616,"Includes issues related to non-contractor civilian personell, civilian employment in the defense industry, and military base closings"
+Defense,Contractors,1617,"Includes issues related to military contractors and contracting, oversight of military contrators and fraud by military contractors"
+Defense,Foreign Operations,1619,"Includes issues related to direct war-related foreign military operations, prisoners of war and collateral damage to civilian populations"
+Defense,Claims against Military,1620,"Includes issues related to claims against the military, settlements for military dependents, and compensation for civilizans injured in military operations"
+Defense,Research and Development,1698,Includes issues related to defense research and development
+Defense,Other,1699,Includes issues related to other defense policy subtopics
+Technology,General,1700,"Includes issues related to general space, science, technology, and communications"
+Technology,Space,1701,"Includes issues related to the government use of space and space resource exploitation agreements, government space programs and space exploration, military use of space"
+Technology,Commercial Use of Space,1704,"Includes issues related to the regulation and promotion of commerical use of space, commercial satellite technology, and government efforts to encourage commercial space development"
+Technology,Science Transfer,1705,Includes issues related to science and technology transfer and international science cooperation
+Technology,Telecommunications,1706,"Includes issues related to telephone and telecommunication regulation, infrastructure for high speed internet, and other forms fo telecommunication"
+Technology,Broadcast,1707,"Includes issues related to the regulation of the newspaper, publishing, radio, and broadcast televsion industries"
+Technology,Weather Forecasting,1708,"Includes issues related to weather forecasting, oceanography, geological surveys, and weather forecasting research and technology"
+Technology,Computers,1709,"Includes issues related generally to the computer industry, regulation of the internet, and computer security"
+Technology,Research and Development,1798,"Includes issues related to space, science, technology, and communication research and development not mentioned in other subtopics."
+Technology,Other,1799,"Includes issues related to other space, science, technology, and communication research and development"
+Foreign Trade,General,1800,Includes issues generally related to foreign trade and appropriations for government agencies generally regulating foreign trade
+Foreign Trade,Trade Agreements,1802,"Includes issues related to trade negotiatons, disputes, and agreements, including tax treaties"
+Foreign Trade,Exports,1803,"Includes issues related to export regulation, subsidies, promotion, and control"
+Foreign Trade,Private Investments,1804,Includes issues related to international private business investment and corporate development
+Foreign Trade,Competitiveness,1806,Includes issues related to productivity of competitiveness of domestic businsses and balance of payments issues
+Foreign Trade,Tariff and Imports,1807,"Includes issues related to tariffs and other barriers to imports, import regulation and impact of imports on domestic industries"
+Foreign Trade,Exchange Rates,1808,Includes issues related to exchange rate and related issues
+Foreign Trade,Other,1899,Includes issues related to other foreign trade policy subtopics
+International Affairs,General,1900,"Includes issues related to general international affairs and foreign aid, including appropriations for general government foreign affairs agencies"
+International Affairs,Foreign Aid,1901,Includes issues related to foreign aid not directly targeting at increasing international development
+International Affairs,Resources Exploitation,1902,"Includes issues related to international resources exploitation and resources agreements, law of the sea and international ocean conservation efforts"
+International Affairs,Developing Countries,1905,Includes issues related specifically to developing countriesDeveloping Countries Issues (for Financial Issues see 1906)
+International Affairs,International Finance,1906,"Includes issues related to international finance and economic development, the World Bank and International Monetary Fund, regional development banks, sovereign debt and implications for international lending instututions"
+International Affairs,Western Europe,1910,Includes issues related to Western Europe and the European Union
+International Affairs,Specific Country,1921,"Includes issues related specifically to a foreign country or region not codable using other codes, assessment of political issues in other countries, relations between individual countries"
+International Affairs,Human Rights,1925,"Includes issues related to human rights, human rights violations, human rights treaties and conventions, UN reports on human rights, crimes associated with genocide or crimes against humanitity"
+International Affairs,Organizations,1926,"International organizations, NGOs, the United Nations, International Red Cross, UNESCO, International Olympic Committee, International Criminal Court"
+International Affairs,Terrorism,1927,"Includes issues related to international terrorism, hijacking, and acts of piracy in other countries, efforts to fight international terrorism, international legal mechanisms to combat terrorism"
+International Affairs,Diplomats,1929,"Includes issues related to diplomats, diplomacy, embassies, citizens abroad, foreign diplomats in the country, visas and passports"
+International Affairs,Other,1999,Includes issues related to other international affairs policy subtopics
+Government Operations,General,2000,"Includes issues related to general government operations, including appropriations for multiple government agencies"
+Government Operations,Intergovernmental Relations,2001,"Includes issues related to intergovernmental relations, local government issues"
+Government Operations,Bureaucracy,2002,Includes issues related to general government efficiencies and bureaucratic oversight
+Government Operations,Postal Service,2003,"Includes issues related to postal services, regulation of mail, and post civil service"
+Government Operations,Employees,2004,"Includes issues related to civil employees not mentioned in other subtopics, government pensions and general civil service issues"
+Government Operations,Appointments,2005,Includes issues related to nomations and appointments not mentioned elsewhere
+Government Operations,Currency,2006,"Includes issues related the currency, natonal mints, medals, and commemorative coins"
+Government Operations,Procurement and Contractors,2007,"Includes issues related to government procurement, government contractors, contractor and procurement fraud, and procurement processes and systems"
+Government Operations,Property Management,2008,"Includes issues related to government property management, construction, and regulation"
+Government Operations,Tax Administration,2009,"Includes issues related to tax administration, enforcement, and auditing for both individuals and corporations"
+Government Operations,Scandals,2010,Includes issues related to public scandal and impeachment
+Government Operations,Branch Relations,2011,"Includes issues related to government branch relatons, administrative issues, and constitutional reforms"
+Government Operations,Political Campaigns,2012,"Includes issues related to the regulation of political campaigns, campaign finance, political advertising and voter registration"
+Government Operations,Census and Statistics,2013,Includes issues related to census and statistics collection by government
+Government Operations,Capital City,2014,Includes issues related to the capital city
+Government Operations,Claims against,2015,"Includes issues related to claims againt the government, compensation for the victims of terrorist attacks, compensation policies without other substantive provisions"
+Government Operations,National Holidays,2030,Includes issues related to national holidays and their observation
+Government Operations,Other,2099,Includes issues related to other government operations subtopics
+Public Lands,General,2100,"Includes issues related to general public lands, water management, and terrorial issues"
+Public Lands,National Parks,2101,"Includes issues related to national parks, memorials, historic sites, and recreation, including the management and staffing of cultural sites"
+Public Lands,Indigenous Affairs,2102,"Includes issues related to indigenous affairs, indigenous lands, and assistance to indigenous people"
+Public Lands,Public Lands,2103,"Includes issues related to natural resources, public lands, and forest management, including forest fires, livestock grazing"
+Public Lands,Water Resources,2104,"Includes issues related to water resources, water resource development and civil works, flood control, and research"
+Public Lands,Dependencies and Territories,2105,Includes issues related to terroritial and dependency issues and devolution
+Public Lands,Other,2199,Includes issues related to other public lands policy subtopics
+Culture,General,2300,Includes issues related to general cultural policy issues
