@@ -4,3 +4,5 @@ numpy==1.18.1
 pandas==1.0.0
 plotly==4.5.0
 requests==2.22.0
+gensim==3.8.1
+nltk==3.4.5
