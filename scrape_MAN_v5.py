@@ -65,4 +65,4 @@ codebook = pd.DataFrame(row_list, columns=["Major Topic", "Minor Topic", "Code",
 
 assert not codebook.isnull().values.any()
 
-codebook.to_csv(DATA_DIR + "MAN.csv", index=False)
+codebook.to_csv(DATA_DIR + "MAN_v5.csv", index=False)
