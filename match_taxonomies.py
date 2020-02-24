@@ -54,9 +54,14 @@ def build_dict(df):
     return dict(zip(df.Code, df.Description))
 
 
+def include_cap_topics(x):
+    x.Description += " " + x["Major Topic"] if x["Minor Topic"] in ["General", "Other"] else " " + x["Minor Topic"]
+    return x
+
 print("Preprocessing CAP dataset")
 
 cap_df.Description = cap_df.Description.apply(lambda x: remove_beginning(x))
+cap_df = cap_df.apply(lambda x: include_cap_topics(x), axis=1)
 cap_df.Description = cap_df.Description.apply(lambda x: remove_punctuation(x))
 cap_df.Description = cap_df.Description.apply(lambda x: x.strip().lower())
 cap_df.Description = cap_df.Description.apply(lambda x: remove_stopwords(x))
@@ -108,14 +113,15 @@ def remove_empty(description_list):
     return list(filter(None, desc_list))
 
 
-def flatten(description_list):
+def flatten(description_list, include_repeat=True):
     """
-    Flattens list of lists to a single list containing non-repeated words.
+    Flattens list of lists to a single list containing words.
     :param description_list: List containing descriptions
+    :param include_repeat: Include repeated words in list (boolean)
     :return: flattened list of words
     """
     flattened = [val for sublist in description_list for val in sublist]
-    return list(set(flattened))
+    return flattened if include_repeat else list(set(flattened))
 
 
 def remove_non_english(word_list):
@@ -145,7 +151,7 @@ man_df.Description = man_df.Description.apply(lambda x: remove_non_english(x))
 man_desc_dict = build_dict(man_df)
 
 # Besides not necessary to recompute CSV unless there are changes, loading the model is very time consuming
-if not os.path.exists(CORR):
+if not os.path.exists(DATA_DIR + 'match3.csv'):
     print("Downloading model")
 
     # Pretrained Word2Vec model
@@ -174,9 +180,9 @@ if not os.path.exists(CORR):
         sims_dict[cap_code] = sims
 
     df = pd.DataFrame(sims_dict)
-    df.to_csv(DATA_DIR + 'match.csv', index=False)
+    df.to_csv(DATA_DIR + 'match3.csv', index=False)
 
-matches_df = pd.read_csv(CORR)
+matches_df = pd.read_csv(DATA_DIR + 'match3.csv')
 corrs = []
 
 for cap_code in matches_df.columns:
@@ -203,4 +209,4 @@ corr_df = pd.DataFrame(corrs, columns=['CAP', '1 CODE', '1 NAME', '1 CORR', '2 C
                                        '3 CODE', '3 NAME', '3 CORR', '4 CODE', '4 NAME', '4 CORR',
                                        '5 CODE', '5 NAME', '5 CORR'])
 
-corr_df.to_csv(DATA_DIR + 'best_matches.csv', index=False)
+corr_df.to_csv(DATA_DIR + 'best_matches3.csv', index=False)
