@@ -7,8 +7,6 @@ WORKBOOK_DIR = "Data/Workbooks/"
 COLS = ['C', 'F']
 STYLE_VALUE = {'Bad': 0, 'Neutral': 0.5, 'Good': 1}
 
-index_colors = px.styles.colors.COLOR_INDEX
-
 files = [file for file in glob.glob(WORKBOOK_DIR + '*.xlsx')]
 
 
