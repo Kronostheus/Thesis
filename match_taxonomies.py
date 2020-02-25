@@ -13,7 +13,6 @@ DATA_DIR = "Data/Coding_Schemes/"
 
 MAN = DATA_DIR + 'MAN_v4.csv'
 CAP = DATA_DIR + 'CAP.csv'
-CORR = DATA_DIR + 'match.csv'
 
 cap_df = pd.read_csv(CAP)
 
@@ -98,7 +97,8 @@ def remove_patterns(description):
     :return: Description with affected expressions removed
     """
     return re.sub(r'\[|\]|e\.g|etc\.|and/or |[Ff]avourable |[Oo]pposition |[Nn]egative |[Pp]ositive |[Aa]ppeal(s)? |\'s'
-                  r'[Mm]entions |[Rr]eferences |[Uu]nfavourable |[Ss]upport |[Gg]eneral |[Ll]imiting |Community/|ECs/',
+                  r'[Mm]entions |[Rr]eferences |[Uu]nfavourable |[Ss]upport |[Gg]eneral |[Ll]imiting |Community/|ECs/|'
+                  r'[Pp]ositive|[Nn]egative|[Ll]imitation|[Ee]xpansion',
                   '', description)
 
 
@@ -137,6 +137,7 @@ def remove_non_english(word_list):
 
 print("Preprocessing MAN dataset")
 
+man_df = man_df.apply(lambda x: include_cap_topics(x), axis=1)
 man_df.Description = man_df.Description.apply(lambda x: sent_tokenize(x))
 man_df.Description = man_df.Description.apply(lambda x: list(map(remove_includes, x)))
 man_df.Description = man_df.Description.apply(lambda x: list(map(remove_numbers, x)))
@@ -151,7 +152,7 @@ man_df.Description = man_df.Description.apply(lambda x: remove_non_english(x))
 man_desc_dict = build_dict(man_df)
 
 # Besides not necessary to recompute CSV unless there are changes, loading the model is very time consuming
-if not os.path.exists(DATA_DIR + 'match3.csv'):
+if not os.path.exists(DATA_DIR + 'match4.csv'):
     print("Downloading model")
 
     # Pretrained Word2Vec model
@@ -180,9 +181,9 @@ if not os.path.exists(DATA_DIR + 'match3.csv'):
         sims_dict[cap_code] = sims
 
     df = pd.DataFrame(sims_dict)
-    df.to_csv(DATA_DIR + 'match3.csv', index=False)
+    df.to_csv(DATA_DIR + 'match4.csv', index=False)
 
-matches_df = pd.read_csv(DATA_DIR + 'match3.csv')
+matches_df = pd.read_csv(DATA_DIR + 'match4.csv')
 corrs = []
 
 for cap_code in matches_df.columns:
@@ -209,4 +210,4 @@ corr_df = pd.DataFrame(corrs, columns=['CAP', '1 CODE', '1 NAME', '1 CORR', '2 C
                                        '3 CODE', '3 NAME', '3 CORR', '4 CODE', '4 NAME', '4 CORR',
                                        '5 CODE', '5 NAME', '5 CORR'])
 
-corr_df.to_csv(DATA_DIR + 'best_matches3.csv', index=False)
+corr_df.to_csv(DATA_DIR + 'best_matches4.csv', index=False)
