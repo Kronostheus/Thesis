@@ -19,7 +19,7 @@ WORKBOOK_DIR = "Data/Workbooks/"
 MAN = DATA_DIR + 'MAN_v4.csv'
 CAP = DATA_DIR + 'CAP.csv'
 
-METHOD = "lemma.csv"
+METHOD = "man_to_cap.csv"
 
 cap_df = pd.read_csv(CAP)
 
@@ -74,7 +74,7 @@ cap_df = cap_df.apply(lambda x: include_cap_topics(x), axis=1)
 cap_df.Description = cap_df.Description.apply(lambda x: remove_punctuation(x))
 cap_df.Description = cap_df.Description.apply(lambda x: x.strip().lower())
 cap_df.Description = cap_df.Description.apply(lambda x: remove_stopwords(x))
-cap_df.Description = cap_df.Description.apply(lambda x: reduce_lemma(x))
+#cap_df.Description = cap_df.Description.apply(lambda x: reduce_lemma(x))
 
 # Dictionary with the Code and Description -> Dictionary<Code, Description>
 cap_desc_dict = build_dict(cap_df)
@@ -158,7 +158,7 @@ man_df.Description = man_df.Description.apply(lambda x: remove_empty(x))
 man_df.Description = man_df.Description.apply(lambda x: list(map(remove_stopwords, x)))
 man_df.Description = man_df.Description.apply(lambda x: flatten(x))
 man_df.Description = man_df.Description.apply(lambda x: remove_non_english(x))
-man_df.Description = man_df.Description.apply(lambda x: reduce_lemma(x))
+#man_df.Description = man_df.Description.apply(lambda x: reduce_lemma(x))
 
 # Dictionary with the Code and Description -> Dictionary<Code, Description>
 man_desc_dict = build_dict(man_df)
