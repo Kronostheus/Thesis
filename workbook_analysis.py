@@ -4,7 +4,7 @@ import glob
 
 WORKBOOK_DIR = "Data/Workbooks/"
 
-COLS = ['C', 'F']
+COLS = ['C', 'F', 'I', 'L', 'O']
 STYLE_VALUE = {'Bad': 0, 'Neutral': 0.5, 'Good': 1}
 
 files = [file for file in glob.glob(WORKBOOK_DIR + '*.xlsx')]
@@ -24,38 +24,91 @@ def build_dataframe():
 
 
 sheet_df = build_dataframe()
-file_cols = [list(sheet_df.columns)[start:start+2] for start in range(0, sheet_df.shape[1] - 1, 2)]
+file_cols = [list(sheet_df.columns)[start:start+5] for start in range(0, sheet_df.shape[1] - 1, 5)]
 
 
 def print_out():
     for file_index in range(len(files)):
         cols = file_cols[file_index]
-        points_count = list(dict(sheet_df[cols].sum()).values())
-        value_counts = [dict(sheet_df[col].value_counts()) for col in cols]
 
-        good_sec = sheet_df[cols][(sheet_df[cols[0]] != 1) & (sheet_df[cols[1]] == 1)].shape[0]
+        good_first = sheet_df[cols][sheet_df[cols[0]] == 1].shape[0]
 
-        print(files[file_index])
-        print("Points:\n\tFirst Choice: {}\n\tSecond Choice: {}".format(points_count[0], points_count[1]))
-        print("Counts:\n"
-              "\tFirst Choice:\n"
-              "\t\tGood: {}\n"
-              "\t\tNeutral: {}\n"
-              "\t\tBad: {}\n"
-              "\tSecond Choice:\n"
-              "\t\tGood: {}\n"
-              "\t\tNeutral: {}\n"
-              "\t\tBad: {}\n".format(value_counts[0].get(1.0), value_counts[0].get(0.5), value_counts[0].get(0),
-                                     value_counts[1].get(1.0), value_counts[1].get(0.5), value_counts[1].get(0))
-              )
+        good_sec = sheet_df[cols][(sheet_df[cols[0]] != 1) &
+                                  (sheet_df[cols[1]] == 1)].shape[0]
+
+        good_third = sheet_df[cols][(sheet_df[cols[0]] != 1) &
+                                    (sheet_df[cols[1]] != 1) &
+                                    (sheet_df[cols[2]] == 1)].shape[0]
+
+        good_fourth = sheet_df[cols][(sheet_df[cols[0]] != 1) &
+                                     (sheet_df[cols[1]] != 1) &
+                                     (sheet_df[cols[2]] != 1) &
+                                     (sheet_df[cols[3]] == 1)].shape[0]
+
+        good_fifth = sheet_df[cols][(sheet_df[cols[0]] != 1) &
+                                     (sheet_df[cols[1]] != 1) &
+                                     (sheet_df[cols[2]] != 1) &
+                                     (sheet_df[cols[3]] != 1) &
+                                     (sheet_df[cols[4]] == 1)].shape[0]
+
+        good_neither = sheet_df[cols][(sheet_df[cols[0]] != 1) &
+                                     (sheet_df[cols[1]] != 1) &
+                                     (sheet_df[cols[2]] != 1) &
+                                     (sheet_df[cols[3]] != 1) &
+                                     (sheet_df[cols[4]] != 1)].shape[0]
+
+        print("##################" + files[file_index] + "##################")
+
         print("A total of {} Good categories found in second choice, while first either Bad or Neutral.\n"
               "If we were to replace these, the original {} Good choices would total {} out of {}.\n"
-              "That would represent {}% of Good choices.\n".format(good_sec, value_counts[0].get(1.0),
-                                                                   value_counts[0].get(1.0) + good_sec,
+              "That would represent {}% of Good choices.\n".format(good_sec,
+                                                                   good_first,
+                                                                   good_first + good_sec,
                                                                    sheet_df.shape[0],
-                                                                   round(100 * (value_counts[0].get(1.0) + good_sec)
-                                                                         / sheet_df.shape[0]), 2)
+                                                                   round(100 * (good_first + good_sec)
+                                                                         / sheet_df.shape[0], 2))
               )
+
+        print("A total of {} Good categories found in third choice, while first either Bad or Neutral.\n"
+              "If we were to replace these, the previous {} Good choices would total {} out of {}.\n"
+              "That would represent {}% of Good choices.\n".format(good_third,
+                                                                   good_first + good_sec,
+                                                                   good_first + good_sec + good_third,
+                                                                   sheet_df.shape[0],
+                                                                   round(100 * (good_first + good_sec + good_third)
+                                                                         / sheet_df.shape[0], 2))
+              )
+
+        print("A total of {} Good categories found in fourth choice, while first either Bad or Neutral.\n"
+              "If we were to replace these, the previous {} Good choices would total {} out of {}.\n"
+              "That would represent {}% of Good choices.\n".format(good_fourth,
+                                                                   good_first + good_sec + good_third,
+                                                                   good_first + good_sec + good_third + good_fourth,
+                                                                   sheet_df.shape[0],
+                                                                   round(100 * (good_first + good_sec + good_third + good_fourth)
+                                                                         / sheet_df.shape[0], 2))
+              )
+
+        print("A total of {} Good categories found in fifth choice, while first either Bad or Neutral.\n"
+              "If we were to replace these, the previous {} Good choices would total {} out of {}.\n"
+              "That would represent {}% of Good choices.\n".format(good_third,
+                                                                   good_first + good_sec + good_third + good_fourth,
+                                                                   good_first + good_sec + good_third + good_fourth + good_fifth,
+                                                                   sheet_df.shape[0],
+                                                                   round(100 * (good_first + good_sec + good_third + good_fourth + good_fifth)
+                                                                         / sheet_df.shape[0], 2))
+              )
+
+        print("There are a total of {} topics with no Good matches ({}%)\n".format(good_neither, round(100 * good_neither / sheet_df.shape[0], 2)))
+
 print_out()
 
+cap_code_df = pd.read_csv("Data/Coding_Schemes/Matchings/best_matches5.csv").CAP
+no_good = sheet_df[file_cols[-1]][(sheet_df[file_cols[-1][0]] != 1) &
+                                     (sheet_df[file_cols[-1][1]] != 1) &
+                                     (sheet_df[file_cols[-1][2]] != 1) &
+                                     (sheet_df[file_cols[-1][3]] != 1) &
+                                     (sheet_df[file_cols[-1][4]] != 1)]
+
+df = pd.concat([cap_code_df, no_good], axis=1).dropna()
 print()
