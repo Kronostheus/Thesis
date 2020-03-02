@@ -1,0 +1,214 @@
+Code,MAN
+Macroeconomics: General,Economic Planning
+Macroeconomics: Interest Rates,Market Regulation
+Macroeconomics: Unemployment Rate,Economic Planning
+Macroeconomics: Monetary Policy,Economic Planning
+Macroeconomics: National Budget,Economic Orthodoxy
+Macroeconomics: Tax Code,Incentives
+Macroeconomics: Industrial Policy,Economic Planning
+Macroeconomics: Price Control,Controlled Economy
+Macroeconomics: Other,Economic Planning
+Civil Rights: General,Freedom and Human Rights
+Civil Rights: Minority Discrimination,Equality: Positive
+Civil Rights: Gender Discrimination,Equality: Positive
+Civil Rights: Age Discrimination,Equality: Positive
+Civil Rights: Handicap Discrimination,Equality: Positive
+Civil Rights: Voting Rights,Freedom and Human Rights
+Civil Rights: Freedom of Speech,Freedom and Human Rights
+Civil Rights: Right to Privacy,Freedom and Human Rights
+Civil Rights: Anti-Government,Marxist Analysis: Positive
+Civil Rights: Other,Freedom and Human Rights
+Health: General,Welfare State Expansion
+Health: Health Care Reform,Welfare State Expansion
+Health: Insurance,Welfare State Expansion
+Health: Drug Industry,Technology and Infrastructure
+Health: Medical Facilities,Welfare State Expansion
+Health: Insurance Providers,Welfare State Expansion
+Health: Medical Liability,Welfare State Expansion
+Health: Manpower,Welfare State Expansion
+Health: Disease Prevention,Welfare State Expansion
+Health: Infants and Children,Welfare State Expansion
+Health: Mental,Welfare State Expansion
+Health: Long-term Care,Welfare State Expansion
+Health: Drug Coverage and Cost,Welfare State Expansion
+Health: Tobacco Abuse,Welfare State Expansion
+Health: Drug and Alcohol Abuse,Welfare State Expansion
+Health: Research and Development,Welfare State Expansion
+Health: Other,Welfare State Expansion
+Agriculture: General,Agriculture and Farmers: Positive
+Agriculture: Trade,Agriculture and Farmers: Positive
+Agriculture: Subsidies to Farmers,Agriculture and Farmers: Positive
+Agriculture: Food Inspection and Safety,Agriculture and Farmers: Positive
+Agriculture: Marketing and Promotion,Agriculture and Farmers: Positive
+Agriculture: Animal and Crop Disease,Agriculture and Farmers: Positive
+Agriculture: Fisheries and Fishing,Agriculture and Farmers: Positive
+Agriculture: Research and Development,Agriculture and Farmers: Positive
+Agriculture: Other,Agriculture and Farmers: Positive
+Labor: General,Corporatism/ Mixed Economy
+Labor: Worker Safety,Welfare State Expansion
+Labor: Employment Training,Labour Groups: Positive
+Labor: Employee Benefits,Corporatism/ Mixed Economy
+Labor: Labor Unions,Labour Groups: Positive
+Labor: Fair Labor Standards,Labour Groups: Positive
+Labor: Youth Employment,Labour Groups: Positive
+Labor: Migrant and Seasonal,Labour Groups: Positive
+Labor: Other,Labour Groups: Positive
+Education: General,Education Limitation
+Education: Higher,Education Limitation
+Education: Elementary and Secondary,Education Expansion
+Education: Underprivileged,Education Limitation
+Education: Vocational,Education Limitation
+Education: Special,Education Limitation
+Education: Excellence,Education Limitation
+Education: Research and Development,Education Limitation
+Education: Other,Education Limitation
+Environment: General,Environmental Protection: Positive
+Environment: Drinking Water,Environmental Protection: Positive
+Environment: Waste Disposal,Environmental Protection: Positive
+Environment: Hazardous Waste,Environmental Protection: Positive
+Environment: Air Pollution,Environmental Protection: Positive
+Environment: Recycling,Environmental Protection: Positive
+Environment: Indoor Hazards,Environmental Protection: Positive
+Environment: Species and Forest,Environmental Protection: Positive
+Environment: Conservation,Environmental Protection: Positive
+Environment: Research and Development,Environmental Protection: Positive
+Environment: Other,Environmental Protection: Positive
+Energy: General,Technology and Infrastructure
+Energy: Nuclear,Technology and Infrastructure
+Energy: Electricity,Technology and Infrastructure
+Energy: Natural Gas and Oil,Environmental Protection: Positive
+Energy: Coal,Technology and Infrastructure
+Energy: Alternative and Renewable,Technology and Infrastructure
+Energy: Conservation,Technology and Infrastructure
+Energy: Research and Development,Technology and Infrastructure
+Energy: Other,Technology and Infrastructure
+Immigration: Immigration,Multiculturalism: Positive
+Transportation: General,Technology and Infrastructure
+Transportation: Mass,Technology and Infrastructure
+Transportation: Highways,Technology and Infrastructure
+Transportation: Air Travel,Technology and Infrastructure
+Transportation: Railroad Travel,Technology and Infrastructure
+Transportation: Maritime,Technology and Infrastructure
+Transportation: Infrastructure,Technology and Infrastructure
+Transportation: Research and Development,Technology and Infrastructure
+Transportation: Other,Technology and Infrastructure
+Law and Crime: General,Law and Order: Positive
+Law and Crime: Agencies,Law and Order: Positive
+Law and Crime: White Collar Crime,Law and Order: Positive
+Law and Crime: Illegal Drugs,Law and Order: Positive
+Law and Crime: Court Administration,Law and Order: Positive
+Law and Crime: Prisons,Law and Order: Positive
+Law and Crime: Juvenile Crime,Law and Order: Positive
+Law and Crime: Child Abuse,Law and Order: Positive
+Law and Crime: Family Issues,Law and Order: Positive
+Law and Crime: Criminal and Civil Code,Law and Order: Positive
+Law and Crime: Crime Control,Law and Order: Positive
+Law and Crime: Police,Law and Order: Positive
+Law and Crime: Other,Law and Order: Positive
+Social Welfare: General,Welfare State Limitation
+Social Welfare: Low-Income Assistance,Welfare State Expansion
+Social Welfare: Elderly Assistance,Welfare State Expansion
+Social Welfare: Disabled Assistance,Welfare State Limitation
+Social Welfare: Volunteer Associations,Welfare State Limitation
+Social Welfare: Child Care,Welfare State Expansion
+Social Welfare: Other,Welfare State Limitation
+Housing: General,Technology and Infrastructure
+Housing: Community Development,Technology and Infrastructure
+Housing: Urban Development,Technology and Infrastructure
+Housing: Rural Housing,Technology and Infrastructure
+Housing: Rural Development,Technology and Infrastructure
+Housing: Low-Income Assistance,Welfare State Expansion
+Housing: Veterans,Military: Negative
+Housing: Elderly,Welfare State Expansion
+Housing: Homeless,Welfare State Expansion
+Housing: Research and Development,Technology and Infrastructure
+Housing: Other,Technology and Infrastructure
+Domestic Commerce: General,Economic Planning
+Domestic Commerce: Banking,Economic Orthodoxy
+Domestic Commerce: Securities and Commodities,Market Regulation
+Domestic Commerce: Consumer Finance,Market Regulation
+Domestic Commerce: Insurance Regulation,Market Regulation
+Domestic Commerce: Bankruptcy,Law and Order: Positive
+Domestic Commerce: Corporate Management,Market Regulation
+Domestic Commerce: Small Businesses,Market Regulation
+Domestic Commerce: Copyrights and Patents,Free Market Economy
+Domestic Commerce: Disaster Relief,Welfare State Expansion
+Domestic Commerce: TourismDecription,Market Regulation
+Domestic Commerce: Consumer Safety,Market Regulation
+Domestic Commerce: Sports Regulation,Culture: Positive
+Domestic Commerce: Research and Development,Technology and Infrastructure
+Domestic Commerce: Other,Economic Planning
+Defense: General,Military: Positive
+Defense: Alliances,Internationalism: Positive
+Defense: Intelligence,Military: Negative
+Defense: Readiness,Military: Positive
+Defense: Nuclear Arms,Military: Negative
+Defense: Military Aid,Military: Negative
+Defense: Personnel Issues,Military: Negative
+Defense: Procurement,Military: Positive
+Defense: Installations and Land,Military: Negative
+Defense: Reserve Forces,Military: Positive
+Defense: Hazardous Waste,Military: Negative
+Defense: Civil,Law and Order: Positive
+Defense: Civilian Personnel,Military: Negative
+Defense: Contractors,Military: Negative
+Defense: Foreign Operations,Military: Negative
+Defense: Claims against Military,Military: Negative
+Defense: Research and Development,Technology and Infrastructure
+Defense: Other,Military: Positive
+Technology: General,Technology and Infrastructure
+Technology: Space,Technology and Infrastructure
+Technology: Commercial Use of Space,Market Regulation
+Technology: Science Transfer,Technology and Infrastructure
+Technology: Telecommunications,Technology and Infrastructure
+Technology: Broadcast,Technology and Infrastructure
+Technology: Weather Forecasting,Technology and Infrastructure
+Technology: Computers,Technology and Infrastructure
+Technology: Research and Development,Technology and Infrastructure
+Technology: Other,Technology and Infrastructure
+Foreign Trade: General,Economic Planning
+Foreign Trade: Trade Agreements,Internationalism: Negative
+Foreign Trade: Exports,Protectionism: Positive
+Foreign Trade: Private Investments,Free Market Economy
+Foreign Trade: Competitiveness,Protectionism: Negative
+Foreign Trade: Tariff and Imports,Protectionism: Negative
+Foreign Trade: Exchange Rates,Economic Planning
+Foreign Trade: Other,Internationalism: Negative
+International Affairs: General,Internationalism: Positive
+International Affairs: Foreign Aid,Internationalism: Positive
+International Affairs: Resources Exploitation,Internationalism: Positive
+International Affairs: Developing Countries,Internationalism: Positive
+International Affairs: International Finance,Internationalism: Positive
+International Affairs: Western Europe,European Community/Union: Negative
+International Affairs: Specific Country,Foreign Special Relationships: Positive
+International Affairs: Human Rights,Internationalism: Positive
+International Affairs: Organizations,Internationalism: Positive
+International Affairs: Terrorism,Internationalism: Positive
+International Affairs: Diplomats,Internationalism: Negative
+International Affairs: Other,Internationalism: Positive
+Government Operations: General,Political Authority
+Government Operations: Intergovernmental Relations,Governmental and Administrative Efficiency
+Government Operations: Bureaucracy,Governmental and Administrative Efficiency
+Government Operations: Postal Service,Governmental and Administrative Efficiency
+Government Operations: Employees,Governmental and Administrative Efficiency
+Government Operations: Appointments,Governmental and Administrative Efficiency
+Government Operations: Currency,Economic Planning
+Government Operations: Procurement and Contractors,Governmental and Administrative Efficiency
+Government Operations: Property Management,Nationalisation
+Government Operations: Tax Administration,Governmental and Administrative Efficiency
+Government Operations: Scandals,Political Corruption
+Government Operations: Branch Relations,Governmental and Administrative Efficiency
+Government Operations: Political Campaigns,Political Authority
+Government Operations: Census and Statistics,Governmental and Administrative Efficiency
+Government Operations: Capital City,Governmental and Administrative Efficiency
+Government Operations: Claims against,Governmental and Administrative Efficiency
+Government Operations: National Holidays,National Way of Life: Negative
+Government Operations: Other,Centralisation
+Public Lands: General,Environmental Protection: Positive
+Public Lands: National Parks,Culture: Positive
+Public Lands: Indigenous Affairs,Multiculturalism: Positive
+Public Lands: Public Lands,Environmental Protection: Positive
+Public Lands: Water Resources,Technology and Infrastructure
+Public Lands: Dependencies and Territories,Federalism
+Public Lands: Other,Environmental Protection: Positive
+Culture: General,Culture: Positive
