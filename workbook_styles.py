@@ -11,8 +11,6 @@ VALUES_STYLE = {1: "Good", 0.5: "Neutral", 0: "Bad", -1: "Normal"}
 files = [file for file in glob.glob(WORKBOOK_DIR + '*.xlsx')]
 
 to_process = [file for file in files if px.load_workbook(file).active['O2'].style == "Normal"]
-to_match = [file for file in files if file not in to_process]
-
 
 def decide_style(topic_dict, cell):
     best_style = VALUES_STYLE[max(STYLE_VALUES[cell.style], STYLE_VALUES[topic_dict[cell.internal_value]])] \
@@ -22,6 +20,7 @@ def decide_style(topic_dict, cell):
 
 def get_cols(row):
     return [col + str(row) for col in ['C', 'F', 'I', 'L', 'O']]
+
 
 last_wb_dict = {}
 

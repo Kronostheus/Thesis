@@ -19,7 +19,7 @@ WORKBOOK_DIR = "Data/Workbooks/"
 MAN = DATA_DIR + 'MAN_v4.csv'
 CAP = DATA_DIR + 'CAP.csv'
 
-METHOD = "man_to_cap.csv"
+METHOD = "both_topics.csv"
 
 cap_df = pd.read_csv(CAP)
 
@@ -60,8 +60,8 @@ def build_dict(df):
     return dict(zip(df.Code, df.Description))
 
 
-def include_cap_topics(x):
-    x.Description += " " + x["Major Topic"] if x["Minor Topic"] in ["General", "Other"] else " " + x["Minor Topic"]
+def include_topics(x):
+    x.Description += " " + x["Major Topic"] if x["Minor Topic"] in ["General", "Other"] else " " + x["Minor Topic"] + " " + x["Major Topic"]
     return x
 
 def reduce_lemma(description):
@@ -70,7 +70,7 @@ def reduce_lemma(description):
 print("Preprocessing CAP dataset")
 
 cap_df.Description = cap_df.Description.apply(lambda x: remove_beginning(x))
-cap_df = cap_df.apply(lambda x: include_cap_topics(x), axis=1)
+cap_df = cap_df.apply(lambda x: include_topics(x), axis=1)
 cap_df.Description = cap_df.Description.apply(lambda x: remove_punctuation(x))
 cap_df.Description = cap_df.Description.apply(lambda x: x.strip().lower())
 cap_df.Description = cap_df.Description.apply(lambda x: remove_stopwords(x))
@@ -148,7 +148,7 @@ def remove_non_english(word_list):
 
 print("Preprocessing MAN dataset")
 
-man_df = man_df.apply(lambda x: include_cap_topics(x), axis=1)
+man_df = man_df.apply(lambda x: include_topics(x), axis=1)
 man_df.Description = man_df.Description.apply(lambda x: sent_tokenize(x))
 man_df.Description = man_df.Description.apply(lambda x: list(map(remove_includes, x)))
 man_df.Description = man_df.Description.apply(lambda x: list(map(remove_numbers, x)))
