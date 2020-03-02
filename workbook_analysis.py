@@ -3,6 +3,7 @@ import pandas as pd
 import glob
 
 WORKBOOK_DIR = "Data/Workbooks/"
+DATA_DIR = "Data/Coding_Schemes/"
 
 COLS = ['C', 'F', 'I', 'L', 'O']
 STYLE_VALUE = {'Bad': 0, 'Neutral': 0.5, 'Good': 1}
@@ -25,7 +26,7 @@ def build_dataframe():
 
 sheet_df = build_dataframe()
 file_cols = [list(sheet_df.columns)[start:start+5] for start in range(0, sheet_df.shape[1] - 1, 5)]
-
+percs = []
 
 def print_out():
     for file_index in range(len(files)):
@@ -56,6 +57,9 @@ def print_out():
                                      (sheet_df[cols[2]] != 1) &
                                      (sheet_df[cols[3]] != 1) &
                                      (sheet_df[cols[4]] != 1)].shape[0]
+
+        perc = round(100 * (good_first + good_sec + good_third + good_fourth + good_fifth) / sheet_df.shape[0], 2)
+        percs.append(perc)
 
         print("##################" + files[file_index] + "##################")
 
@@ -95,20 +99,43 @@ def print_out():
                                                                    good_first + good_sec + good_third + good_fourth,
                                                                    good_first + good_sec + good_third + good_fourth + good_fifth,
                                                                    sheet_df.shape[0],
-                                                                   round(100 * (good_first + good_sec + good_third + good_fourth + good_fifth)
-                                                                         / sheet_df.shape[0], 2))
+                                                                   perc)
               )
 
         print("There are a total of {} topics with no Good matches ({}%)\n".format(good_neither, round(100 * good_neither / sheet_df.shape[0], 2)))
 
+
 print_out()
 
-cap_code_df = pd.read_csv("Data/Coding_Schemes/Matchings/best_matches5.csv").CAP
-no_good = sheet_df[file_cols[-1]][(sheet_df[file_cols[-1][0]] != 1) &
-                                     (sheet_df[file_cols[-1][1]] != 1) &
-                                     (sheet_df[file_cols[-1][2]] != 1) &
-                                     (sheet_df[file_cols[-1][3]] != 1) &
-                                     (sheet_df[file_cols[-1][4]] != 1)]
 
-df = pd.concat([cap_code_df, no_good], axis=1).dropna()
-print()
+def find_best_matches():
+    best_file = files[percs.index(max(percs))]
+    cap = pd.read_csv("Data/Coding_Schemes/CAP.csv")
+    sheet = px.load_workbook(best_file).active
+
+    CODES = ['B', 'E', 'H', 'K', 'N']
+
+    col_dict = {}
+    for col in COLS:
+        col_dict[col] = [STYLE_VALUE[sheet[col + str(cell_num)].style] for cell_num in range(2, sheet.max_row + 1)]
+
+    for col in CODES:
+        col_dict[col] = [sheet[col + str(cell_num)].internal_value for cell_num in range(2, sheet.max_row + 1)]
+
+    df = pd.concat([cap.Code, pd.DataFrame(col_dict)], axis=1)
+    first_goods = [df[df.C == 1],
+                   df[(df.C != 1) & (df.F == 1)],
+                   df[(df.C != 1) & (df.F != 1) & (df.I == 1)],
+                   df[(df.C != 1) & (df.F != 1) & (df.I != 1) & (df.L == 1)],
+                   df[(df.C != 1) & (df.F != 1) & (df.I != 1) & (df.L != 1) & (df.O == 1)]
+                   ]
+
+    code_dict = {}
+    for idx in range(len(first_goods)):
+        sub_df = first_goods[idx]
+        code_dict.update(dict(zip(sub_df.Code, sub_df[CODES[idx]])))
+
+    return cap.merge(pd.DataFrame(code_dict.items(), columns=['CAP', 'MAN']), left_on='Code', right_on='CAP', how='left')[['Code', 'MAN']]
+
+
+find_best_matches().to_csv(DATA_DIR + 'cap_to_man.csv', index=False)
