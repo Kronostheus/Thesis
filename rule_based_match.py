@@ -10,16 +10,14 @@ def fill_individual(x):
     :return: updated row
     """
     individuals = {
-        '105': '414',
-        '599': '701',
-        '900': '607',
-        '1000': '411',
-        '1507': '605',
-        '1523': '504',
-        '1701': '411',
-        '1927': '107',
-        '2010': '304',
-        '2102': '607'
+        '105': '414',                   # National Budget               -> Economic Orthodoxy
+        '599': '701',                   # Labor - Other                 -> Labour Groups
+        '900': '607',                   # Immigration                   -> Multiculturalism
+        '1000': '411',                  # Transportation - General      -> Technology and Infrastructure
+        '1523': '504',                  # Disaster Relief               -> Welfare State
+        '1701': '411',                  # Space                         -> Technology and Infrastructure
+        '2010': '304',                  # Scandals                      -> Political Corruption
+        '2102': '607'                   # Indigenous Affairs            -> Multiculturalism
     }
 
     # I also ensure that all codes have the same format (XXX)
@@ -34,10 +32,10 @@ def fill_groups(x):
     :param x: row of dataframe
     :return: updated row
     """
-    groups = {'80': '411',
-              '14': '411',
-              '16': '104',
-              '21': '501'}
+    groups = {'80': '411',              # Energy        (6)              -> Technology and Infrastructure
+              '14': '411',              # Housing       (7)              -> Technology and Infrastructure
+              '16': '104',              # Defense       (2)              -> Military
+              '21': '501'}              # Public Lands  (2)              -> Environmental Protection
 
     if x.MAN == 'nan':
         # Treat the first 2 digits of the CAP code as a group. THIS CAN HAVE PROBLEMS FOR OTHER CODES! (ex: 199 vs 1901)
@@ -47,18 +45,29 @@ def fill_groups(x):
 
 
 def spanish_media_codes():
+    """
+    Spanish Media files seem to have been coded with its own codebook, heavily based on CAP master codebook. For the
+    most part, the correspondences between CAP master codebook and MAN codebook apply. Some CAP codes are not included
+    in Spanish Media codebook. Eight new codes were added to the existing CAP topics, three from an existing CAP Major
+    Topic (Culture) and five created within new Major Topics (Climate (1), Sports (1) and Death Notices (3)).
+
+    This method creates the correspondence between the eight new topics and their respective MAN code. This is done in
+    the shape of a DataFrame that is later appended to the original correspondence DataFrame.
+    :return: DataFrame containing correspondence between unique spanish media codes and MAN codes
+    """
     corrs = {
-        '2301': '502',
-        '2302': '502',
-        '2399': '502',
-        '2700': '501',
-        '2900': '502',
-        '3001': '000',
-        '3002': '000',
-        '3099': '000'
+        '2301': '502',                  # Culture: Cinema, Theatre, etc. -> Culture
+        '2302': '502',                  # Culture: Books                 -> Culture
+        '2399': '502',                  # Culture: Others                -> Culture
+        '2700': '501',                  # Climate: General               -> Environmental Protection
+        '2900': '502',                  # Sports: General                -> Culture
+        '3001': '000',                  # Death Notices: Natural Death   -> General
+        '3002': '000',                  # Death Notices: Violent Death   -> General
+        '3099': '000'                   # Death Notices: Others          -> General
     }
 
     return pd.DataFrame(corrs.items(), columns=['Code', 'MAN'])
+
 
 df = pd.read_csv(DATA_DIR + 'cap_to_man.csv', dtype='object')
 
@@ -88,6 +97,7 @@ def verbose(row):
         '3002': 'Death Notices: Violent Death',
         '3099': 'Death Notices: Others'
     }
+
     row.Code = spanish_codes[row.Code] if row.Code in spanish_codes.keys() \
         else ': '.join(cap[cap.Code == row.Code][["Major Topic", "Minor Topic"]].iloc[0].tolist())
 
