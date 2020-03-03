@@ -46,10 +46,25 @@ def fill_groups(x):
     return x
 
 
+def spanish_media_codes():
+    corrs = {
+        '2301': '502',
+        '2302': '502',
+        '2399': '502',
+        '2700': '501',
+        '2900': '502',
+        '3001': '000',
+        '3002': '000',
+        '3099': '000'
+    }
+
+    return pd.DataFrame(corrs.items(), columns=['Code', 'MAN'])
+
 df = pd.read_csv(DATA_DIR + 'cap_to_man.csv', dtype='object')
 
-df = df.apply(lambda x: fill_individual(x), axis=1)  # Individuals first
-df = df.apply(lambda x: fill_groups(x), axis=1)      # Groups second
+df = df.apply(lambda x: fill_individual(x), axis=1)         # Individuals first
+df = df.apply(lambda x: fill_groups(x), axis=1)             # Groups second
+df = df.append(spanish_media_codes(), ignore_index=True)    # Spanish Media additional codes
 
 df.to_csv(DATA_DIR + 'cap_to_man.csv', index=False)
 
@@ -63,9 +78,18 @@ def verbose(row):
     :param row: row of dataframe
     :return: new row
     """
-
-    # CAP codes have their Main Topic included to avoided confusion of over 200 Minor Topics
-    row.Code = ': '.join(cap[cap.Code == row.Code][["Major Topic", "Minor Topic"]].iloc[0].tolist())
+    spanish_codes = {
+        '2301': 'Culture: Cinema, theatre, music and dance',
+        '2302': 'Culture: Publication of books and literary works',
+        '2399': 'Culture: Others',
+        '2700': 'Climate: General',
+        '2900': 'Sports: General',
+        '3001': 'Death Notices: Natural Death',
+        '3002': 'Death Notices: Violent Death',
+        '3099': 'Death Notices: Others'
+    }
+    row.Code = spanish_codes[row.Code] if row.Code in spanish_codes.keys() \
+        else ': '.join(cap[cap.Code == row.Code][["Major Topic", "Minor Topic"]].iloc[0].tolist())
 
     # MAN codes are smaller in range and more explicit
     row.MAN = man[man.Code == row.MAN]["Minor Topic"].tolist()[0]
