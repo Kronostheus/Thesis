@@ -2,7 +2,6 @@ import pandas as pd
 
 DATA_DIR = 'Data/Coding_Schemes/'
 
-
 def fill_individual(x):
     """
     Based on NA values, build dictionary of CAP codes whose MAN correspondence should be individually hand-picked
@@ -69,11 +68,37 @@ def spanish_media_codes():
     return pd.DataFrame(corrs.items(), columns=['Code', 'MAN'])
 
 
+def reduce(man_code):
+    """
+    In MAN codes where there is sentiment, we only keep one. Code now acts as a general statement from both codes.
+    Ex: Education Limitation (507) vs Education Expansion (506) => Education (506)
+    :param man_code: MAN code
+    :return: MAN code
+    """
+    reduce_dict = {
+        '102': '101',
+        '105': '104',
+        '109': '107',
+        '110': '108',
+        '204': '203',
+        '407': '406',
+        '505': '504',
+        '507': '506',
+        '602': '601',
+        '604': '603',
+        '608': '607',
+        '702': '701'
+    }
+
+    return reduce_dict[man_code] if man_code in reduce_dict.keys() else man_code
+
+
 df = pd.read_csv(DATA_DIR + 'cap_to_man.csv', dtype='object')
 
 df = df.apply(lambda x: fill_individual(x), axis=1)         # Individuals first
 df = df.apply(lambda x: fill_groups(x), axis=1)             # Groups second
 df = df.append(spanish_media_codes(), ignore_index=True)    # Spanish Media additional codes
+df.MAN = df.MAN.apply(lambda x: reduce(x))
 
 df.to_csv(DATA_DIR + 'cap_to_man.csv', index=False)
 
