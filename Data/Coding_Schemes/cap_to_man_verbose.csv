@@ -53,15 +53,15 @@ Labor: Fair Labor Standards,Labour Groups: Positive
 Labor: Youth Employment,Labour Groups: Positive
 Labor: Migrant and Seasonal,Labour Groups: Positive
 Labor: Other,Labour Groups: Positive
-Education: General,Education Limitation
-Education: Higher,Education Limitation
+Education: General,Education Expansion
+Education: Higher,Education Expansion
 Education: Elementary and Secondary,Education Expansion
-Education: Underprivileged,Education Limitation
-Education: Vocational,Education Limitation
-Education: Special,Education Limitation
-Education: Excellence,Education Limitation
-Education: Research and Development,Education Limitation
-Education: Other,Education Limitation
+Education: Underprivileged,Education Expansion
+Education: Vocational,Education Expansion
+Education: Special,Education Expansion
+Education: Excellence,Education Expansion
+Education: Research and Development,Education Expansion
+Education: Other,Education Expansion
 Environment: General,Environmental Protection: Positive
 Environment: Drinking Water,Environmental Protection: Positive
 Environment: Waste Disposal,Environmental Protection: Positive
@@ -105,20 +105,20 @@ Law and Crime: Criminal and Civil Code,Law and Order: Positive
 Law and Crime: Crime Control,Law and Order: Positive
 Law and Crime: Police,Law and Order: Positive
 Law and Crime: Other,Law and Order: Positive
-Social Welfare: General,Welfare State Limitation
+Social Welfare: General,Welfare State Expansion
 Social Welfare: Low-Income Assistance,Welfare State Expansion
 Social Welfare: Elderly Assistance,Welfare State Expansion
-Social Welfare: Disabled Assistance,Welfare State Limitation
-Social Welfare: Volunteer Associations,Welfare State Limitation
+Social Welfare: Disabled Assistance,Welfare State Expansion
+Social Welfare: Volunteer Associations,Welfare State Expansion
 Social Welfare: Child Care,Welfare State Expansion
-Social Welfare: Other,Welfare State Limitation
+Social Welfare: Other,Welfare State Expansion
 Housing: General,Technology and Infrastructure
 Housing: Community Development,Technology and Infrastructure
 Housing: Urban Development,Technology and Infrastructure
 Housing: Rural Housing,Technology and Infrastructure
 Housing: Rural Development,Technology and Infrastructure
 Housing: Low-Income Assistance,Welfare State Expansion
-Housing: Veterans,Military: Negative
+Housing: Veterans,Military: Positive
 Housing: Elderly,Welfare State Expansion
 Housing: Homeless,Welfare State Expansion
 Housing: Research and Development,Technology and Infrastructure
@@ -140,20 +140,20 @@ Domestic Commerce: Research and Development,Technology and Infrastructure
 Domestic Commerce: Other,Economic Planning
 Defense: General,Military: Positive
 Defense: Alliances,Internationalism: Positive
-Defense: Intelligence,Military: Negative
+Defense: Intelligence,Military: Positive
 Defense: Readiness,Military: Positive
-Defense: Nuclear Arms,Military: Negative
-Defense: Military Aid,Military: Negative
-Defense: Personnel Issues,Military: Negative
+Defense: Nuclear Arms,Military: Positive
+Defense: Military Aid,Military: Positive
+Defense: Personnel Issues,Military: Positive
 Defense: Procurement,Military: Positive
-Defense: Installations and Land,Military: Negative
+Defense: Installations and Land,Military: Positive
 Defense: Reserve Forces,Military: Positive
-Defense: Hazardous Waste,Military: Negative
+Defense: Hazardous Waste,Military: Positive
 Defense: Civil,Law and Order: Positive
-Defense: Civilian Personnel,Military: Negative
-Defense: Contractors,Military: Negative
-Defense: Foreign Operations,Military: Negative
-Defense: Claims against Military,Military: Negative
+Defense: Civilian Personnel,Military: Positive
+Defense: Contractors,Military: Positive
+Defense: Foreign Operations,Military: Positive
+Defense: Claims against Military,Military: Positive
 Defense: Research and Development,Technology and Infrastructure
 Defense: Other,Military: Positive
 Technology: General,Technology and Infrastructure
@@ -167,24 +167,24 @@ Technology: Computers,Technology and Infrastructure
 Technology: Research and Development,Technology and Infrastructure
 Technology: Other,Technology and Infrastructure
 Foreign Trade: General,Economic Planning
-Foreign Trade: Trade Agreements,Internationalism: Negative
+Foreign Trade: Trade Agreements,Internationalism: Positive
 Foreign Trade: Exports,Protectionism: Positive
 Foreign Trade: Private Investments,Free Market Economy
-Foreign Trade: Competitiveness,Protectionism: Negative
-Foreign Trade: Tariff and Imports,Protectionism: Negative
+Foreign Trade: Competitiveness,Protectionism: Positive
+Foreign Trade: Tariff and Imports,Protectionism: Positive
 Foreign Trade: Exchange Rates,Economic Planning
-Foreign Trade: Other,Internationalism: Negative
+Foreign Trade: Other,Internationalism: Positive
 International Affairs: General,Internationalism: Positive
 International Affairs: Foreign Aid,Internationalism: Positive
 International Affairs: Resources Exploitation,Internationalism: Positive
 International Affairs: Developing Countries,Internationalism: Positive
 International Affairs: International Finance,Internationalism: Positive
-International Affairs: Western Europe,European Community/Union: Negative
+International Affairs: Western Europe,European Community/Union: Positive
 International Affairs: Specific Country,Foreign Special Relationships: Positive
 International Affairs: Human Rights,Internationalism: Positive
 International Affairs: Organizations,Internationalism: Positive
 International Affairs: Terrorism,Internationalism: Positive
-International Affairs: Diplomats,Internationalism: Negative
+International Affairs: Diplomats,Internationalism: Positive
 International Affairs: Other,Internationalism: Positive
 Government Operations: General,Political Authority
 Government Operations: Intergovernmental Relations,Governmental and Administrative Efficiency
@@ -202,7 +202,7 @@ Government Operations: Political Campaigns,Political Authority
 Government Operations: Census and Statistics,Governmental and Administrative Efficiency
 Government Operations: Capital City,Governmental and Administrative Efficiency
 Government Operations: Claims against,Governmental and Administrative Efficiency
-Government Operations: National Holidays,National Way of Life: Negative
+Government Operations: National Holidays,National Way of Life: Positive
 Government Operations: Other,Centralisation
 Public Lands: General,Environmental Protection: Positive
 Public Lands: National Parks,Culture: Positive
