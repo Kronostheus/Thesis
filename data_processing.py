@@ -1,5 +1,6 @@
 import glob
 import pandas as pd
+import numpy as np
 from abc import ABC, abstractmethod
 
 
@@ -54,7 +55,7 @@ class DataProcessor(ABC):
         :return: MAN code
         """
         reduce_dict = {'102': '101', '105': '104', '109': '107', '110': '108', '204': '203', '407': '406', '505': '504',
-                       '507': '506', '602': '601', '604': '603', '608': '607', '702': '701'}
+                       '507': '506', '602': '601', '604': '603', '608': '607', '702': '701', 'H': '999'}
 
         return reduce_dict[man_code] if man_code in reduce_dict.keys() else man_code
 
@@ -94,14 +95,35 @@ class CAPProcessor(DataProcessor):
         # Some codes have no source, thus, I consider them a mistake and drop the row.
         df.Code = df.Code.apply(lambda x: corrs[str(x)] if str(x) in corrs.keys() else pd.NaT)
 
+    @staticmethod
+    def fix_dataframe(df):
+        offset = 0
+        for index, row in df.iterrows():
+            text = str(row.title)
+            if '\t' in text:
+                index += offset
+                split_text = text.split('\r\n')
+                df.loc[index, 'title'] = split_text[0]
+                new_df = pd.DataFrame([tmp_row.split('\t') for tmp_row in split_text[1:]], columns=df.columns)
+                offset += new_df.shape[0]
+                df.iloc[:] = pd.concat([df.iloc[:index+1], new_df, df.iloc[index+1:]]).reset_index(drop=True)
+
+    @staticmethod
+    def fix_breaks(text):
+        return " ".join(element.strip() for element in text.split('\r\n')) if '\r\n' in str(text) else str(text)
+
     def execute(self):
         for path, df in self.dataframes.items():
+            self.fix_dataframe(df)
             self.drop(df)
             self.rename(df)
             self.convert(df)
             df.dropna(inplace=True)
             df.Code = df.Code.apply(lambda x: self.reduce(x))
             df.Text = df.Text.apply(lambda x: str(x).strip())
+            df.Text.apply(lambda x: self.fix_breaks(x))
+            df.Text.replace('', np.nan, inplace=True)
+            df.dropna(inplace=True)
             df.to_csv(path, index=False)
 
 
@@ -126,14 +148,27 @@ class MANProcessor(DataProcessor):
         """
         df.Code = df.Code.apply(lambda x: str(x).split('.')[0])
 
+    @staticmethod
+    def clean(row):
+        code = row.Code
+        text = row.Text
+        if len(str(text).split()) > 150 and str(code) in ('nan', 'H'):
+            row.Code = np.nan
+        if str(code) == 'nan' and len(str(text).split()) < 20:
+            row.Code = 'H'
+        return row
+
     def execute(self):
         for path, df in self.dataframes.items():
             self.drop(df)
             self.rename(df)
-            df.Code.fillna('H', inplace=True)
+            df = df.apply(lambda x: self.clean(x), axis=1)
+            df.dropna(inplace=True)
             self.convert(df)
             df.Code = df.Code.apply(lambda x: self.reduce(x))
             df.Text = df.Text.apply(lambda x: str(x).strip())
+            df.Text.replace('', np.nan, inplace=True)
+            df.dropna(inplace=True)
             df.to_csv(path, index=False)
 
 
