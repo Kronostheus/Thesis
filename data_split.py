@@ -16,8 +16,8 @@ TRAIN_PATH.mkdir(exist_ok=True)
 TEST_PATH = Path(str(CLASS_PATH) + '/Test/')
 TEST_PATH.mkdir(exist_ok=True)
 
-# VAL_PATH = Path(str(CLASS_PATH) + '/Val/')
-# VAL_PATH.mkdir(exist_ok=True)
+VAL_PATH = Path(str(CLASS_PATH) + '/Val/')
+VAL_PATH.mkdir(exist_ok=True)
 
 SPAIN_DATA = Path(DATA_DIR + '/Spain_Media/').glob('*.csv')
 PORTUGAL_DATA = Path(DATA_DIR + '/Portugal_Manifestos/').glob('*.csv')
@@ -51,7 +51,7 @@ def check_stratify(main, dfs):
     :return:
     """
 
-    df_names = {0: 'Train', 1: 'Test'}
+    df_names = {0: 'Train', 1: 'Test', 2: 'Val'}
 
     df_lst = [bundle_count(main, "Main")]
 
@@ -61,28 +61,32 @@ def check_stratify(main, dfs):
         # Throw exception if percentages of codes are not similar to a given threshold
         assert np.allclose(main.Code.value_counts(normalize=True),
                            df.Code.value_counts(normalize=True),
-                           rtol=1e-3, atol=1e-5)
+                           rtol=1e-3, atol=1e-4)
 
         df_lst.append(bundle_count(df, df_names[i]))
 
     # Inner Join all dataframes in df_lst
     results = reduce(lambda df1, df2: pd.merge(df1, df2, on='Code'), df_lst)
 
+    shapes = [sub_df.shape[0] for sub_df in dfs]
     # Throw exception if split dataframes would not rebuild into the original one. Also check if percentages add to 100%
+    assert main.shape[0] == sum(shapes)
     assert np.allclose(results.sum()[1:], [main.shape[0], 100,
-                                           int(main.shape[0] * 0.6), 100,
-                                           main.shape[0] - int(main.shape[0] * 0.6), 100])
+                                           shapes[0], 100,
+                                           shapes[1], 100,
+                                           shapes[2], 100])
 
     results.Code = results.Code.astype('object')
     results.to_csv(CLASS_DIR + 'dataset_split.csv', index=False)
 
 
-# Split dataframe at the 60% mark and 80% mark resulting in a (60, 20, 20) split
+# Split dataframe at the 60% mark and 80% mark resulting in a (80, 10, 10) split
 train, test = train_test_split(data, train_size=0.6, random_state=1, shuffle=True, stratify=data.Code)
+test, val = train_test_split(test, train_size=0.5, random_state=1, shuffle=True, stratify=test.Code)
 
 # Validate results
-check_stratify(data, [train, test])
+check_stratify(data, [train, test, val])
 
 train.to_csv(str(TRAIN_PATH) + '/train.csv', index=False)
-# val.to_csv(str(VAL_PATH) + '/val.csv', index=False)
+val.to_csv(str(VAL_PATH) + '/val.csv', index=False)
 test.to_csv(str(TEST_PATH) + '/test.csv', index=False)
