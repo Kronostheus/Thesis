@@ -21,7 +21,7 @@ VAL_PATH.mkdir(exist_ok=True)
 
 SPAIN_DATA = Path(DATA_DIR + '/Spain_Media/').glob('*.csv')
 PORTUGAL_DATA = Path(DATA_DIR + '/Portugal_Manifestos/').glob('*.csv')
-BRAZIL_DATA = Path(DATA_DIR + '/Spain_Media/').glob('*.csv')
+BRAZIL_DATA = Path(DATA_DIR + '/Brazil_Manifestos/').glob('*.csv')
 
 data = pd.DataFrame()
 for data_generator in [PORTUGAL_DATA, SPAIN_DATA, BRAZIL_DATA]:
@@ -80,8 +80,8 @@ def check_stratify(main, dfs):
     results.to_csv(CLASS_DIR + 'dataset_split.csv', index=False)
 
 
-# Split dataframe at the 60% mark and 80% mark resulting in a (80, 10, 10) split
-train, test = train_test_split(data, train_size=0.6, random_state=1, shuffle=True, stratify=data.Code)
+# Split dataframe at the 70% mark and 85% mark resulting in a (70, 15, 15) split
+train, test = train_test_split(data, train_size=0.7, random_state=1, shuffle=True, stratify=data.Code)
 test, val = train_test_split(test, train_size=0.5, random_state=1, shuffle=True, stratify=test.Code)
 
 # Validate results
