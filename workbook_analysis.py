@@ -75,6 +75,12 @@ def print_out():
 
         print("##################" + files[file_index] + "##################")
 
+        print("A total of {} Good categories found in first choice\n"
+              "Representing {}% of Good choices.\n".format(good_first,
+                                                                   round(100 * (good_first)
+                                                                         / sheet_df.shape[0], 2))
+              )
+
         print("A total of {} Good categories found in second choice, while first either Bad or Neutral.\n"
               "If we were to replace these, the original {} Good choices would total {} out of {}.\n"
               "That would represent {}% of Good choices.\n".format(good_sec,
@@ -165,4 +171,4 @@ def find_best_matches():
     return cap.merge(pd.DataFrame(code_dict.items(), columns=['CAP', 'MAN']), left_on='Code', right_on='CAP', how='left')[['Code', 'MAN']]
 
 
-find_best_matches().to_csv(DATA_DIR + 'cap_to_man.csv', index=False)
+# find_best_matches().to_csv(DATA_DIR + 'cap_to_man.csv', index=False)
