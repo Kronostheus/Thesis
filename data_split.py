@@ -22,9 +22,10 @@ VAL_PATH.mkdir(exist_ok=True)
 SPAIN_DATA = Path(DATA_DIR + '/Spain_Media/').glob('*.csv')
 PORTUGAL_DATA = Path(DATA_DIR + '/Portugal_Manifestos/').glob('*.csv')
 BRAZIL_DATA = Path(DATA_DIR + '/Brazil_Manifestos/').glob('*.csv')
+ITALY_DATA = Path(DATA_DIR + '/Italy_Manifestos/').glob('*.csv')
 
 data = pd.DataFrame()
-for data_generator in [PORTUGAL_DATA, SPAIN_DATA, BRAZIL_DATA]:
+for data_generator in [PORTUGAL_DATA, SPAIN_DATA, BRAZIL_DATA, ITALY_DATA]:
     data = pd.concat([data, pd.concat([pd.read_csv(path) for path in data_generator])])
 
 

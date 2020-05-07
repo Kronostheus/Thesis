@@ -113,7 +113,7 @@ def print_out():
 
         print("A total of {} Good categories found in fifth choice, while first either Bad or Neutral.\n"
               "If we were to replace these, the previous {} Good choices would total {} out of {}.\n"
-              "That would represent {}% of Good choices.\n".format(good_third,
+              "That would represent {}% of Good choices.\n".format(good_fifth,
                                                                    good_first + good_sec + good_third + good_fourth,
                                                                    good_first + good_sec + good_third + good_fourth + good_fifth,
                                                                    sheet_df.shape[0],

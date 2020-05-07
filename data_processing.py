@@ -172,9 +172,7 @@ class MANProcessor(DataProcessor):
             df.to_csv(path, index=False)
 
 
-processes = [CAPProcessor('Data/Spain_Media/'),
-             MANProcessor('Data/Portugal_Manifestos/'),
-             MANProcessor('Data/Brazil_Manifestos/')]
+processes = [MANProcessor('Data/Italy_Manifestos/')]
 
 for proc in processes:
     proc.execute()
