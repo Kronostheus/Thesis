@@ -25,8 +25,10 @@ BRAZIL_DATA = Path(DATA_DIR + '/Brazil_Manifestos/').glob('*.csv')
 ITALY_DATA = Path(DATA_DIR + '/Italy_Manifestos/').glob('*.csv')
 
 data = pd.DataFrame()
-for data_generator in [PORTUGAL_DATA, SPAIN_DATA, BRAZIL_DATA, ITALY_DATA]:
-    data = pd.concat([data, pd.concat([pd.read_csv(path) for path in data_generator])])
+for country, data_generator in zip(["P", "S", "B", "I"], [PORTUGAL_DATA, SPAIN_DATA, BRAZIL_DATA, ITALY_DATA]):
+    country_df = pd.concat([pd.read_csv(path) for path in data_generator])
+    country_df["country"] = country
+    data = pd.concat([data, country_df])
 
 
 def bundle_count(df, prefix):
