@@ -1,35 +1,17 @@
-import nltk
-import sklearn_crfsuite
 import pandas
-
-from copy import deepcopy
-from tqdm import tqdm
-from collections import defaultdict
-
-from ner_evaluation.ner_eval import Entity, Evaluator
-
+from Eval.ner_evaluation.ner_eval import Entity, Evaluator
+from Utils import get_spans
 
 df = pandas.read_csv('pipeline_results.csv')
-df = df[df.country == 'S']
-
-
-def get_spans(labels, codes):
-    limits = []
-    prev = ""
-    for idx, (lbl, code) in enumerate(zip(labels, codes)):
-        if lbl == 'B' or (prev != code and lbl == 'O'):
-            limits.append(idx)
-        prev = code
-    limits.append(len(labels))
-    return limits
+# df = df[df.country == 'S']
 
 
 def f_score(precision, recall):
     return 2 * precision * recall / (precision + recall) if precision + recall != 0 else 0
 
 
-df["true_domain"] = df.true_code.apply(lambda x: str(x)[0])
-df["pred_domain"] = df.pred_code.apply(lambda x: str(x)[0])
+# df["true_domain"] = df.true_code.apply(lambda x: str(x)[0])
+# df["pred_domain"] = df.pred_code.apply(lambda x: str(x)[0])
 
 true = []
 pred = []
@@ -47,24 +29,24 @@ for _, sent_df in df.groupby(by='sid'):
     true_ents = []
     for start, end in zip(true_spans, true_spans[1:]):
         t += 1
-        # span_type = str(sent_df[start:end].true_code.value_counts().keys().to_list()[0])
-        span_type = str(sent_df[start:end].true_domain.value_counts().keys().to_list()[0])
+        span_type = str(sent_df[start:end].true_code.value_counts().keys().to_list()[0])
+        # span_type = str(sent_df[start:end].true_domain.value_counts().keys().to_list()[0])
         # span_type = "span" if sent_df[start:end].true_id.to_list()[0] == 'B' else "outside"
         true_ents.append(Entity(span_type, start, end))
 
     pred_ents = []
     for start, end in zip(pred_spans, pred_spans[1:]):
         p += 1
-        # span_type = str(sent_df[start:end].pred_code.value_counts().keys().to_list()[0])
-        span_type = str(sent_df[start:end].pred_domain.value_counts().keys().to_list()[0])
+        span_type = str(sent_df[start:end].pred_code.value_counts().keys().to_list()[0])
+        # span_type = str(sent_df[start:end].pred_domain.value_counts().keys().to_list()[0])
         # span_type = "span" if sent_df[start:end].pred_id.to_list()[0] == 'B' else "outside"
         pred_ents.append(Entity(span_type, start, end))
 
     true.append(true_ents)
     pred.append(pred_ents)
 
-# tags = [str(c) for c in df.true_code.unique()]
-tags = [str(c) for c in df.true_domain.unique()]
+tags = [str(c) for c in df.true_code.unique()]
+# tags = [str(c) for c in df.true_domain.unique()]
 
 evaluator = Evaluator(true, pred, tags)
 # evaluator = Evaluator(true, pred, ["span", "outside"])
