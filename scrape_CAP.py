@@ -1,8 +1,8 @@
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
+from Utils import Config
 
-DATA_DIR = "Data/Coding_Schemes/"
 URL = "https://www.comparativeagendas.net/pages/master-codebook"
 
 r = requests.get(URL)
@@ -45,4 +45,4 @@ codebook["Minor Topic"] = codebook["Minor Topic"].apply(lambda x: x.replace('&',
 assert codebook.shape[0] == 213 and codebook.shape[1] == 4
 assert not codebook.isnull().values.any()
 
-codebook.to_csv(DATA_DIR + "CAP.csv", index=False)
+codebook.to_csv(Config.SCHEMES_DIR + "CAP.csv", index=False)

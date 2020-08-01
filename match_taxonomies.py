@@ -9,15 +9,15 @@ from nltk.stem import WordNetLemmatizer
 from gensim import downloader
 from ast import literal_eval
 from operator import itemgetter
+from Utils import Config
 
 lemma = WordNetLemmatizer()
 
-DATA_DIR = "Data/Coding_Schemes/"
-MATCH_DIR = DATA_DIR + "Matchings/"
+MATCH_DIR = Config.SCHEMES_DIR + "Matchings/"
 WORKBOOK_DIR = "Data/Workbooks/"
 
-MAN = DATA_DIR + 'MAN_v4.csv'
-CAP = DATA_DIR + 'CAP.csv'
+MAN = Config.SCHEMES_DIR + 'MAN_v4.csv'
+CAP = Config.SCHEMES_DIR + 'CAP.csv'
 
 METHOD = "both_topics.csv"
 
@@ -64,8 +64,10 @@ def include_topics(x):
     x.Description += " " + x["Major Topic"] if x["Minor Topic"] in ["General", "Other"] else " " + x["Minor Topic"] + " " + x["Major Topic"]
     return x
 
+
 def reduce_lemma(description):
     return [lemma.lemmatize(word) for word in description]
+
 
 print("Preprocessing CAP dataset")
 
@@ -74,7 +76,7 @@ cap_df = cap_df.apply(lambda x: include_topics(x), axis=1)
 cap_df.Description = cap_df.Description.apply(lambda x: remove_punctuation(x))
 cap_df.Description = cap_df.Description.apply(lambda x: x.strip().lower())
 cap_df.Description = cap_df.Description.apply(lambda x: remove_stopwords(x))
-#cap_df.Description = cap_df.Description.apply(lambda x: reduce_lemma(x))
+# cap_df.Description = cap_df.Description.apply(lambda x: reduce_lemma(x))
 
 # Dictionary with the Code and Description -> Dictionary<Code, Description>
 cap_desc_dict = build_dict(cap_df)
@@ -158,7 +160,7 @@ man_df.Description = man_df.Description.apply(lambda x: remove_empty(x))
 man_df.Description = man_df.Description.apply(lambda x: list(map(remove_stopwords, x)))
 man_df.Description = man_df.Description.apply(lambda x: flatten(x))
 man_df.Description = man_df.Description.apply(lambda x: remove_non_english(x))
-#man_df.Description = man_df.Description.apply(lambda x: reduce_lemma(x))
+# man_df.Description = man_df.Description.apply(lambda x: reduce_lemma(x))
 
 # Dictionary with the Code and Description -> Dictionary<Code, Description>
 man_desc_dict = build_dict(man_df)
@@ -194,6 +196,7 @@ if not os.path.exists(MATCH_DIR + METHOD):
 
     df = pd.DataFrame(sims_dict)
     df.to_csv(MATCH_DIR + METHOD, index=False)
+
 
 matches_df = pd.read_csv(MATCH_DIR + METHOD)
 corrs = []

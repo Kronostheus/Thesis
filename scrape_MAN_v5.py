@@ -2,21 +2,9 @@ import requests
 import re
 import pandas as pd
 from bs4 import BeautifulSoup
+from Utils import Config
 
-DATA_DIR = "Data/Coding_Schemes/"
 URL = "https://manifestoproject.wzb.eu/coding_schemes/mp_v5"
-
-MAJOR_TOPICS = {
-    "0": "General",
-    "1": "External Relations",
-    "2": "Freedom and Democracy",
-    "3": "Political System",
-    "4": "Economy",
-    "5": "Welfare and Quality of Life",
-    "6": "Fabric of Society",
-    "7": "Social Groups",
-    "H": "Header"
-}
 
 r = requests.get(URL)
 
@@ -34,7 +22,7 @@ subcategory = ""
 
 for category in category_list:
     code = category.span.get_text(strip=True)
-    major = MAJOR_TOPICS[code[0]]
+    major = Config.MAN_MAJOR_TOPICS[code[0]]
     minor = category.h3.get_text(strip=True)
 
     desc = category.p
@@ -65,4 +53,4 @@ codebook = pd.DataFrame(row_list, columns=["Major Topic", "Minor Topic", "Code",
 
 assert not codebook.isnull().values.any()
 
-codebook.to_csv(DATA_DIR + "MAN_v5.csv", index=False)
+codebook.to_csv(Config.SCHEMES_DIR + "MAN_v5.csv", index=False)

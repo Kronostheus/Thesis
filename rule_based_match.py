@@ -1,4 +1,5 @@
 import pandas as pd
+from Utils import Config
 
 DATA_DIR = 'Data/Coding_Schemes/'
 
@@ -93,17 +94,17 @@ def reduce(man_code):
     return reduce_dict[man_code] if man_code in reduce_dict.keys() else man_code
 
 
-df = pd.read_csv(DATA_DIR + 'cap_to_man.csv', dtype='object')
+df = pd.read_csv(Config.SCHEMES_DIR + 'cap_to_man.csv', dtype='object')
 
 df = df.apply(lambda x: fill_individual(x), axis=1)         # Individuals first
 df = df.apply(lambda x: fill_groups(x), axis=1)             # Groups second
 df = df.append(spanish_media_codes(), ignore_index=True)    # Spanish Media additional codes
 df.MAN = df.MAN.apply(lambda x: reduce(x))
 
-df.to_csv(DATA_DIR + 'cap_to_man.csv', index=False)
+df.to_csv(Config.SCHEMES_DIR + 'cap_to_man.csv', index=False)
 
-cap = pd.read_csv(DATA_DIR + 'CAP.csv', dtype='object')
-man = pd.read_csv(DATA_DIR + 'MAN_v4.csv', dtype='object')
+cap = pd.read_csv(Config.SCHEMES_DIR + 'CAP.csv', dtype='object')
+man = pd.read_csv(Config.SCHEMES_DIR + 'MAN_v4.csv', dtype='object')
 
 
 def verbose(row):
@@ -133,4 +134,4 @@ def verbose(row):
 
 
 verbose_df = df.apply(lambda x: verbose(x), axis=1)
-verbose_df.to_csv(DATA_DIR + 'cap_to_man_verbose.csv', index=False)
+verbose_df.to_csv(Config.SCHEMES_DIR + 'cap_to_man_verbose.csv', index=False)

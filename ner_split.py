@@ -7,19 +7,13 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from string import ascii_letters, digits
 from transformers import BertTokenizerFast
 from tqdm import tqdm
+from Utils import Config
 
-random.seed(42)
+random.seed(Config.random_seed)
 
-CLASS_DIR = "Data/Classification/"
-DATA_DIR = "Data/"
-
-TRAIN_DIR = CLASS_DIR + 'Train/'
-VAL_DIR = CLASS_DIR + 'Val/'
-TEST_DIR = CLASS_DIR + 'Test/'
-
-all_data = {"P": glob.glob(DATA_DIR + '/Portugal_Manifestos/*.csv'),
-            "B": glob.glob(DATA_DIR + '/Brazil_Manifestos/*.csv'),
-            "I": glob.glob(DATA_DIR + '/Italy_Manifestos/*.csv')}
+all_data = {"P": glob.glob(Config.DATA_DIR + '/Portugal_Manifestos/*.csv'),
+            "B": glob.glob(Config.DATA_DIR + '/Brazil_Manifestos/*.csv'),
+            "I": glob.glob(Config.DATA_DIR + '/Italy_Manifestos/*.csv')}
 
 df_list = [(pd.read_csv(path), country) for country, lst in all_data.items() for path in lst]
 random.shuffle(df_list)
@@ -127,6 +121,13 @@ def fix_chunk_mask(masks, codes):
 
 
 def sentence_fix(sentences, masks, codes):
+    """
+    Rule-based fix to ensure all sentences start with an appropriate token (B or O).
+    :param sentences: sentence list
+    :param masks: token mask list
+    :param codes: code mask list
+    :return: Lists with fixes
+    """
     new_sentences, new_masks, new_codes = [], [], []
     tmp_sentence, tmp_mask, tmp_code = sentences[0], masks[0], codes[0]
 
@@ -408,6 +409,6 @@ train, test, val = split_dfs(token_dfs, 0.7, 0.15)
 
 print("Train:{}\nTest:{}\nVal:{}".format(train.shape[0], test.shape[0], val.shape[0]))
 
-train.to_csv(TRAIN_DIR + "train_ner.csv", index=False)
-val.to_csv(VAL_DIR + 'val_ner.csv', index=False)
-test.to_csv(TEST_DIR + 'test_ner.csv', index=False)
+train.to_csv(Config.TRAIN_DIR + "train_ner.csv", index=False)
+val.to_csv(Config.VAL_DIR + 'val_ner.csv', index=False)
+test.to_csv(Config.TEST_DIR + 'test_ner.csv', index=False)
