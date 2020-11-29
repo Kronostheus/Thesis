@@ -1,36 +1,46 @@
 import glob
 import pandas as pd
+import numpy as np
+from functools import reduce
+from Utils.config import Config
 
-country_dict = {
-    "pt": "Data/Portugal_Manifestos/",
-    "br": "Data/Brazil_Manifestos/",
-    "sp": "Data/Spain_Media/",
-    "it": "Data/Italy_Manifestos/"}
+langs = {'P': 'PT', 'B': 'BR', 'I': 'IT', 'S': 'SP'}
+csv_files = [Config.TRAIN_DIR + 'train.csv', Config.TEST_DIR + 'test.csv', Config.VAL_DIR + 'val.csv']
 
-df = None
+df = pd.concat([pd.read_csv(file) for file in csv_files])
 
-for lang, path in country_dict.items():
-    lang_df = pd.concat([pd.read_csv(path) for path in glob.glob(path + '*.csv')])
-    count_df = lang_df.Code.value_counts().to_frame().reset_index()
-    count_df.columns = ["Code", "{}".format(lang.upper())]
 
-    if df is None:
-        df = count_df
-    else:
-        df = pd.merge(df, count_df, on='Code', how='left')
+def make_string(row):
+    return "{} ({}%)".format(int(row.Count), round(row.Perc * 100, 2))
 
-df.fillna(0, inplace=True)
 
-split_df = pd.read_csv('Data/Classification/dataset_split.csv')
-split_df = split_df[['Code', 'Main_Count', 'Main_Perc']]
+def count_words(code):
+    return int(np.mean([len(text.split()) for text in df[df.Code == code].Text]))
 
-new_df = pd.merge(df, split_df, on='Code', how='left')
-new_df["Total"] = new_df.apply(lambda x: "{} ({})".format(int(x.Main_Count), round(x.Main_Perc, 4)), axis=1)
-new_df.sort_values(by='Main_Count', ascending=False, inplace=True)
+
+total = df.Code.value_counts().to_frame().reset_index()
+total.columns = ['Code', 'Count']
+total['Perc'] = df.Code.value_counts(normalize=True).to_list()
+
+
+code_dfs = []
+for country, country_df in df.groupby(by='country'):
+    country_cats = country_df.Code.value_counts().to_frame().reset_index()
+    country_cats.columns = ['Code', langs[country]]
+    code_dfs.append(country_cats)
+
+code_dfs.append(total)
+joined_df = reduce(lambda x, y: pd.merge(x, y, on='Code', how='outer'), code_dfs)
+joined_df.fillna(0, inplace=True)
+joined_df['Total (%)'] = joined_df.apply(make_string, axis=1)
+joined_df.sort_values(by='Count', ascending=False, inplace=True)
+joined_df.drop(columns=['Count', 'Perc'], inplace=True)
 
 names = pd.read_csv('Data/Coding_Schemes/final_man.csv').dropna().reset_index(drop=True)
-
-names = pd.merge(names, new_df, left_on='MAN Code', right_on='Code', how='left').drop(columns=['Code', 'Main_Count', 'Main_Perc'])
+names.columns = ['Topic', 'MAN Code']
+names = pd.merge(names, joined_df, left_on='MAN Code', right_on='Code', how='left').drop(columns=['Code'])
 names[["MAN Code", "PT", "BR", "IT", "SP"]] = names[["MAN Code", "PT", "BR", "IT", "SP"]].astype(int)
-names = names.astype(str).to_csv('Data/lang_count.csv', index=False)
+names['Avg. Words'] = names['MAN Code'].apply(count_words)
+names = names[['Topic', 'MAN Code', 'Avg. Words', 'PT', 'BR', 'IT', 'SP', 'Total (%)']].astype(str)
+# names.to_csv('Data/lang_count.csv', index=False)
 breakpoint()
