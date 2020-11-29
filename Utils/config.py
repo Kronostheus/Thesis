@@ -3,6 +3,9 @@ class Config:
     CLASS_DIR = DATA_DIR + 'Classification/'
     SCHEMES_DIR = DATA_DIR + 'Coding_Schemes/'
 
+    OPINION_DIR = DATA_DIR + 'Portugal_Opinion/'
+    PRED_DIR = OPINION_DIR + 'prediction_results/'
+
     TRAIN_DIR = CLASS_DIR + 'Train/'
     TEST_DIR = CLASS_DIR + 'Test/'
     VAL_DIR = CLASS_DIR + 'Val/'

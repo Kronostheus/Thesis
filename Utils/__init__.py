@@ -1,2 +1,2 @@
-from .config import Config
-from .utils import get_spans
+from .config import *
+from .utils import *

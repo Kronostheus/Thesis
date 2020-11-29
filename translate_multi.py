@@ -5,7 +5,7 @@ from googletrans import Translator
 from collections import namedtuple
 from itertools import product
 from concurrent.futures import ThreadPoolExecutor
-from Utils import Config, get_spans
+from Utils import Config, get_spans_old
 
 
 train_ner = pd.read_csv(Config.CLASS_DIR + 'Train/train_ner.csv')
@@ -22,10 +22,12 @@ translator = Translator()
 def translate(row):
     dest_langs = dests[row.origin]
     translated_spans = []
+
     for span in row.spans:
         t1 = translator.translate(span, src=row.origin, dest=dest_langs[0]).text
         t2 = translator.translate(span, src=row.origin, dest=dest_langs[1]).text
         translated_spans.append([span, t1, t2])
+
     translated_spans = [" ".join(combination) for combination in product(*translated_spans)]
     return list(zip(translated_spans, [row.code for _ in translated_spans]))
 
@@ -41,7 +43,7 @@ to_translate = []
 
 for _, sent_df in train_ner.groupby(by='sentence_id'):
 
-    spans = get_spans(sent_df.labels, sent_df.codes)
+    spans = get_spans_old(sent_df.labels, sent_df.codes)
 
     # 1 span -> len = 2 | 5 spans -> len = 6
     if len(spans) in range(3, 7) and len(sent_df.codes.unique()) == 1:

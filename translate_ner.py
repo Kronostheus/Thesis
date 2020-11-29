@@ -6,7 +6,7 @@ from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
 from collections import namedtuple
 from nltk.tokenize import word_tokenize
-from Utils import Config, get_spans
+from Utils import Config, get_spans_old
 
 
 # Each language is translated into all the others
@@ -59,7 +59,7 @@ for _, sent_df in train_ner.groupby(by='sentence_id'):
 
     sentence = []
 
-    spans = get_spans(sent_df.labels, sent_df.codes)
+    spans = get_spans_old(sent_df.labels, sent_df.codes)
 
     country = Config.langs[sent_df.country.unique()[0]]
 
